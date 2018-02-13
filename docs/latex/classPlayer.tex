@@ -1,0 +1,227 @@
+\hypertarget{classPlayer}{\section{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+}
+
+
+\hyperlink{classPlayer}{Player} Header File.  
+
+
+
+
+{\ttfamily \#include $<$Player.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classPlayer_a3441fd8a55deac4d3fcf597eccbecd9b}{Player} (int player\-Num=1, int score=0)
+\begin{DoxyCompactList}\small\item\em Class Member Functions. \end{DoxyCompactList}\item 
+\hyperlink{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\-Player} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+std\-::vector$<$ \hyperlink{classCard}{Card} $>$ \hyperlink{classPlayer_a3dcd7c496f9bac6d656c773ff6e85efd}{get\-Hand} ()
+\begin{DoxyCompactList}\small\item\em get\-Hand Function \end{DoxyCompactList}\item 
+std\-::string \hyperlink{classPlayer_a776dfcce1da9e94a24de00332b987851}{get\-Hand\-String} ()
+\begin{DoxyCompactList}\small\item\em get\-Hand\-String Function \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_a70d53f7e54a6cb26533cd73bd2bf896a}{get\-Player\-Num} () const 
+\begin{DoxyCompactList}\small\item\em get\-Player\-Num Function \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_ac10eb9fb0387f565134958d129585ac6}{get\-Score} () const 
+\begin{DoxyCompactList}\small\item\em get\-Score Function \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_a994684bcf41571317faf1c1fd480dde2}{get\-Hand\-Size} () const 
+\begin{DoxyCompactList}\small\item\em get\-Hand\-Size Function \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_aa4e4a7dc3f44f5535d15e5e649c76330}{receive\-Card} (const \hyperlink{classCard}{Card} \&new\-Card)
+\begin{DoxyCompactList}\small\item\em receive\-Card Function \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_adefd8c025da7fa4022047cb50c4c799e}{count\-Rank} (const Rank \&value)
+\begin{DoxyCompactList}\small\item\em count\-Rank Function \end{DoxyCompactList}\item 
+int \hyperlink{classPlayer_aed23835c6855de249d3fc1f1cfd97f29}{give\-Cards} (const Rank \&value, \hyperlink{classPlayer}{Player} \&other\-Player)
+\begin{DoxyCompactList}\small\item\em give\-Cards Function \end{DoxyCompactList}\item 
+void \hyperlink{classPlayer_ac975ba281b0c77796d170c37ce88b95f}{receive\-Point} ()
+\begin{DoxyCompactList}\small\item\em receive\-Point Function \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classPlayer}{Player} Header File. 
+
+\begin{DoxyAuthor}{Author}
+David Adams 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+Jan. 24, 2018 This file contains the class defintion for the \hyperlink{classPlayer}{Player} class. 
+\end{DoxyDate}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classPlayer_a3441fd8a55deac4d3fcf597eccbecd9b}{\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\subsubsection[{Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\-::\-Player (
+\begin{DoxyParamCaption}
+\item[{int}]{player\-Num = {\ttfamily 1}, }
+\item[{int}]{score = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_a3441fd8a55deac4d3fcf597eccbecd9b}
+
+
+Class Member Functions. 
+
+Constructor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em player\-Num} & the number of the player \\
+\hline
+\mbox{\tt in}  & {\em score} & an integer representing the score of the player constructs a player object from the given parameters \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}{\index{Player@{Player}!$\sim$\-Player@{$\sim$\-Player}}
+\index{$\sim$\-Player@{$\sim$\-Player}!Player@{Player}}
+\subsubsection[{$\sim$\-Player}]{\setlength{\rightskip}{0pt plus 5cm}Player\-::$\sim$\-Player (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_a749d2c00e1fe0f5c2746f7505a58c062}
+
+
+Destructor. 
+
+destructs the player object 
+
+\subsection{Member Function Documentation}
+\hypertarget{classPlayer_adefd8c025da7fa4022047cb50c4c799e}{\index{Player@{Player}!count\-Rank@{count\-Rank}}
+\index{count\-Rank@{count\-Rank}!Player@{Player}}
+\subsubsection[{count\-Rank}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-::count\-Rank (
+\begin{DoxyParamCaption}
+\item[{const Rank \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_adefd8c025da7fa4022047cb50c4c799e}
+
+
+count\-Rank Function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & the Rank to be counted in player's hand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int the number of cards with the given rank in the player's hand returns an integer representing how many cards of the given rank the player has 
+\end{DoxyReturn}
+\hypertarget{classPlayer_a3dcd7c496f9bac6d656c773ff6e85efd}{\index{Player@{Player}!get\-Hand@{get\-Hand}}
+\index{get\-Hand@{get\-Hand}!Player@{Player}}
+\subsubsection[{get\-Hand}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Card}$>$ Player\-::get\-Hand (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_a3dcd7c496f9bac6d656c773ff6e85efd}
+
+
+get\-Hand Function 
+
+\begin{DoxyReturn}{Returns}
+vector$<$\-Card$>$ representing the player's hand returns the player's hand 
+\end{DoxyReturn}
+\hypertarget{classPlayer_a994684bcf41571317faf1c1fd480dde2}{\index{Player@{Player}!get\-Hand\-Size@{get\-Hand\-Size}}
+\index{get\-Hand\-Size@{get\-Hand\-Size}!Player@{Player}}
+\subsubsection[{get\-Hand\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-::get\-Hand\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPlayer_a994684bcf41571317faf1c1fd480dde2}
+
+
+get\-Hand\-Size Function 
+
+\begin{DoxyReturn}{Returns}
+int representing the player's hand size returns an integer representing the player's hand size 
+\end{DoxyReturn}
+\hypertarget{classPlayer_a776dfcce1da9e94a24de00332b987851}{\index{Player@{Player}!get\-Hand\-String@{get\-Hand\-String}}
+\index{get\-Hand\-String@{get\-Hand\-String}!Player@{Player}}
+\subsubsection[{get\-Hand\-String}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Player\-::get\-Hand\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_a776dfcce1da9e94a24de00332b987851}
+
+
+get\-Hand\-String Function 
+
+\begin{DoxyReturn}{Returns}
+std\-::string representing the player's hand returns the player's hand in string form 
+\end{DoxyReturn}
+\hypertarget{classPlayer_a70d53f7e54a6cb26533cd73bd2bf896a}{\index{Player@{Player}!get\-Player\-Num@{get\-Player\-Num}}
+\index{get\-Player\-Num@{get\-Player\-Num}!Player@{Player}}
+\subsubsection[{get\-Player\-Num}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-::get\-Player\-Num (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPlayer_a70d53f7e54a6cb26533cd73bd2bf896a}
+
+
+get\-Player\-Num Function 
+
+\begin{DoxyReturn}{Returns}
+int representing the player's number returns an integer representing the player's number 
+\end{DoxyReturn}
+\hypertarget{classPlayer_ac10eb9fb0387f565134958d129585ac6}{\index{Player@{Player}!get\-Score@{get\-Score}}
+\index{get\-Score@{get\-Score}!Player@{Player}}
+\subsubsection[{get\-Score}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-::get\-Score (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{classPlayer_ac10eb9fb0387f565134958d129585ac6}
+
+
+get\-Score Function 
+
+\begin{DoxyReturn}{Returns}
+int representing the player's score returns an integer representing the player's score 
+\end{DoxyReturn}
+\hypertarget{classPlayer_aed23835c6855de249d3fc1f1cfd97f29}{\index{Player@{Player}!give\-Cards@{give\-Cards}}
+\index{give\-Cards@{give\-Cards}!Player@{Player}}
+\subsubsection[{give\-Cards}]{\setlength{\rightskip}{0pt plus 5cm}int Player\-::give\-Cards (
+\begin{DoxyParamCaption}
+\item[{const Rank \&}]{value, }
+\item[{{\bf Player} \&}]{other\-Player}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_aed23835c6855de249d3fc1f1cfd97f29}
+
+
+give\-Cards Function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & the Rank of the card to be given \\
+\hline
+\mbox{\tt in}  & {\em other\-Player} & the \hyperlink{classPlayer}{Player} to whom the cards will be given \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int representing how many cards of the given rank have been given finds cards in the hand of the given rank and gives them to the requesting player, also counting every card that is given 
+\end{DoxyReturn}
+\hypertarget{classPlayer_aa4e4a7dc3f44f5535d15e5e649c76330}{\index{Player@{Player}!receive\-Card@{receive\-Card}}
+\index{receive\-Card@{receive\-Card}!Player@{Player}}
+\subsubsection[{receive\-Card}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::receive\-Card (
+\begin{DoxyParamCaption}
+\item[{const {\bf Card} \&}]{new\-Card}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_aa4e4a7dc3f44f5535d15e5e649c76330}
+
+
+receive\-Card Function 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em new\-Card} & the \hyperlink{classCard}{Card} to be received by the player adds a card to the player's hand \\
+\hline
+\end{DoxyParams}
+\hypertarget{classPlayer_ac975ba281b0c77796d170c37ce88b95f}{\index{Player@{Player}!receive\-Point@{receive\-Point}}
+\index{receive\-Point@{receive\-Point}!Player@{Player}}
+\subsubsection[{receive\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void Player\-::receive\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classPlayer_ac975ba281b0c77796d170c37ce88b95f}
+
+
+receive\-Point Function 
+
+function to increase the player's score by one 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+include/Player.\-h\end{DoxyCompactItemize}
