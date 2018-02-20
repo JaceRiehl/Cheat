@@ -18,7 +18,7 @@ void GoFishView::printWelcome(char& playerNum)
 {
 	bool entered = false;
 
-	while (entered == false)
+	while (!entered)
 	{
 		try
 		{
@@ -71,7 +71,7 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 	string cardChoice;
 	rankIndex = -1;
 
-	while (doneTurn == false)
+	while (!doneTurn)
 	{
 		// player check here
 		try
@@ -95,7 +95,7 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 		}
 	}
 	doneTurn = false;
-	while (doneTurn == false)
+	while (!doneTurn)
 	{
 		try
 		{
