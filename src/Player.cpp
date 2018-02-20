@@ -24,21 +24,21 @@ Player::Player(int playerNum, int score)
 //
 // \return vector<Card> representing the player's hand
 // returns the player's hand
-std::vector<Card> Player::getHand()
+vector<Card> Player::getHand()
 {
     return _hand;
 }
 
 // getHandString Function
 //
-// \return std::string representing the player's hand
+// \return string representing the player's hand
 // returns the player's hand in string form
-std::string Player::getHandString()
+string Player::getHandString()
 {
-	std::string s = "";
+	string s = "";
 	for (int i = 0; i < _hand.size(); ++i)
 	{
-		s = (s + std::to_string((i + 1)) + ") " + _hand[i].getCardString() + "\n");
+		s = (s + to_string((i + 1)) + ") " + _hand[i].getCardString() + "\n");
 	}
 	return s;
 }

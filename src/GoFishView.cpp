@@ -22,9 +22,9 @@ void GoFishView::printWelcome(char& playerNum)
 	{
 		try
 		{
-			std::cout << "Go Fish Game" << std::endl;
-			std::cout << "How many (2-5) will be playing? (0 to quit)" << std::endl;
-			std::cin >> playerNum;
+			cout << "Go Fish Game" << endl;
+			cout << "How many (2-5) will be playing? (0 to quit)" << endl;
+			cin >> playerNum;
 			if (playerNum == '0' || playerNum == '2' || playerNum == '3' || playerNum == '4' || playerNum == '5')
 			{
 				entered = true;
@@ -32,10 +32,10 @@ void GoFishView::printWelcome(char& playerNum)
 			}
 			else
 			{
-				throw std::invalid_argument("ERROR: Invalid number. Please try again.");
+				throw invalid_argument("ERROR: Invalid number. Please try again.");
 			}
 		}
-		catch (const std::invalid_argument& e)
+		catch (const invalid_argument& e)
 		{
 			clear(e);
 		}
@@ -48,11 +48,11 @@ void GoFishView::printWelcome(char& playerNum)
 // \param [out] score the score of the current player
 // \param [out] playerHand the hand of the current player
 // prints the current player's status
-void GoFishView::printStatus(const int& currentPlayer, const int& score, const std::string& playerHand)
+void GoFishView::printStatus(const int& currentPlayer, const int& score, const string& playerHand)
 {
-	std::cout << "Player " << currentPlayer << "'s score: " << score << std::endl;
-	std::cout << "Player " << currentPlayer << "'s hand: " << std::endl;
-	std::cout << playerHand;
+	cout << "Player " << currentPlayer << "'s score: " << score << endl;
+	cout << "Player " << currentPlayer << "'s hand: " << endl;
+	cout << playerHand;
 }
 
 // printPlayerRequest
@@ -66,9 +66,9 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 {
 
 	bool doneTurn = false;
-	std::array<std::string, 13> rankArray = { "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace" };
+	array<string, 13> rankArray = { "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace" };
 	char playerTarget;
-	std::string cardChoice;
+	string cardChoice;
 	rankIndex = -1;
 
 	while (doneTurn == false)
@@ -76,20 +76,20 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 		// player check here
 		try
 		{
-			std::cout << "Which player would you like to ask? (between 1 and " << playerLimit << ")" << std::endl;
-			std::cin >> playerTarget;
+			cout << "Which player would you like to ask? (between 1 and " << playerLimit << ")" << endl;
+			cin >> playerTarget;
 
 			playerChoice = ((playerTarget - '0' - 1));
 			if ((playerChoice < 0) || (playerChoice >= playerLimit) || playerNum == (playerChoice + 1))
 			{
-				throw std::invalid_argument("ERROR: Invalid player selection.");
+				throw invalid_argument("ERROR: Invalid player selection.");
 			}
 			else
 			{
 				doneTurn = true;
 			}
 		}
-		catch (const std::invalid_argument& e)
+		catch (const invalid_argument& e)
 		{
 			clear(e);
 		}
@@ -102,7 +102,7 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 
 			// way to check and handle card requests here
 			printCardRequest(cardChoice);
-			std::transform(cardChoice.begin(), cardChoice.end(), cardChoice.begin(), static_cast<int(*)(int)>(std::tolower));
+			transform(cardChoice.begin(), cardChoice.end(), cardChoice.begin(), static_cast<int(*)(int)>(tolower));
 			for (int i = 0; i < 13; ++i)
 			{
 				if (cardChoice == rankArray[i])
@@ -114,10 +114,10 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 			}
 			if (rankIndex == -1)
 			{
-				throw std::invalid_argument("ERROR: Invalid card selection.");
+				throw invalid_argument("ERROR: Invalid card selection.");
 			}
 		}
-		catch (const std::invalid_argument& e)
+		catch (const invalid_argument& e)
 		{
 			clear(e);
 		}
@@ -128,10 +128,10 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 //
 // \param [in] cardChoice the string of the card being chosen
 // prompts the user to request a card from their chosen player
-void GoFishView::printCardRequest(std::string& cardChoice)
+void GoFishView::printCardRequest(string& cardChoice)
 {
-	std::cout << "Which card would you like to request? (two, three, jack, king, ace, etc.)" << std::endl;
-	std::cin >> cardChoice;
+	cout << "Which card would you like to request? (two, three, jack, king, ace, etc.)" << endl;
+	cin >> cardChoice;
 }
 
 // printHasCards
@@ -140,7 +140,7 @@ void GoFishView::printCardRequest(std::string& cardChoice)
 // prints a message stating that the request was a success, and the given number of cards was transferred.
 void GoFishView::printHasCards(const int& cardAmount)
 {
-	std::cout << "Success! " << cardAmount << " card(s) transferred to your hand." << std::endl;
+	cout << "Success! " << cardAmount << " card(s) transferred to your hand." << endl;
 }
 
 // printGoFish
@@ -148,7 +148,7 @@ void GoFishView::printHasCards(const int& cardAmount)
 // prints the "Go Fish" message
 void GoFishView::printGoFish()
 {
-	std::cout << "Go fish!" << std::endl;
+	cout << "Go fish!" << endl;
 }
 
 // printFinalScore
@@ -158,7 +158,7 @@ void GoFishView::printGoFish()
 // prints the player's final score
 void GoFishView::printFinalScore(const int& currentPlayer, const int& score)
 {
-	std::cout << "Player " << currentPlayer << "'s final score: " << score << std::endl;
+	cout << "Player " << currentPlayer << "'s final score: " << score << endl;
 }
 
 // printGameOver
@@ -166,16 +166,16 @@ void GoFishView::printFinalScore(const int& currentPlayer, const int& score)
 // prints the game over message
 void GoFishView::printGameOver()
 {
-	std::cout << "Game Over" << std::endl;
+	cout << "Game Over" << endl;
 }
 
 // clear function
 //
 // \param [out] e the exception to be printed
 // prints the passed exception and clears the cin stream
-void GoFishView::clear(const std::invalid_argument& e)
+void GoFishView::clear(const invalid_argument& e)
 {
-	std::cerr << e.what() << std::endl;
-	std::cin.clear();
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	cerr << e.what() << endl;
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }

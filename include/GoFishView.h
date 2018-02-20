@@ -19,6 +19,19 @@
 #include <limits>
 #include <cctype>
 
+using std::invalid_argument;
+using std::string;
+using std::cin;
+using std::cout;
+using std::endl;
+using std::transform;
+using std::tolower;
+using std::cerr;
+using std::numeric_limits;
+using std::streamsize;
+using std::array;
+
+
 class GoFishView
 {
 /// Class Member Functions
@@ -44,7 +57,7 @@ public:
 /// \param [out] score the score of the current player
 /// \param [out] playerHand the hand of the current player
 /// prints the current player's status
-	virtual void printStatus(const int& currentPlayer, const int& score, const std::string& playerHand);
+	virtual void printStatus(const int& currentPlayer, const int& score, const string& playerHand);
 
 /// printPlayerRequest
 //
@@ -59,7 +72,7 @@ public:
 //
 /// \param [in] cardChoice the string of the card being chosen
 /// prompts the user to request a card from their chosen player
-	virtual void printCardRequest(std::string& cardChoice);
+	virtual void printCardRequest(string& cardChoice);
 
 /// printHasCards
 //
@@ -88,7 +101,7 @@ public:
 //
 /// \param [out] e the exception to be printed
 /// prints the passed exception and clears the cin stream
-	virtual void clear(const std::invalid_argument& e);
+	virtual void clear(const invalid_argument& e);
 
 };
 

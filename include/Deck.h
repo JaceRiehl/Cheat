@@ -17,11 +17,15 @@
 #include <ctime>
 #include <algorithm>
 
+using std::vector;
+using std::srand;
+using std::random_shuffle;
+
 class Deck
 {
 /// Class Members
 private:
-	std::vector<Card> _deckVector;
+	vector<Card> _deckVector;
 
 /// Class Member Functions
 public:
@@ -39,7 +43,7 @@ public:
 //
 /// \return vector<Card> of cards representing the deck
 /// returns the private vector member of the deck
-	std::vector<Card> getDeck();
+	vector<Card> getDeck();
 
 /// getSize function
 //

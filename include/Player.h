@@ -19,11 +19,15 @@
 #include <cstdlib>
 #include "Card.h"
 
+using std::string;
+using std::vector;
+using std::to_string;
+
 class Player
 {
 /// Class Members
 private:
-	std::vector<Card> _hand;
+	vector<Card> _hand;
 	int _playerNum;
 	int _score;
 
@@ -46,13 +50,13 @@ public:
 //
 /// \return vector<Card> representing the player's hand
 /// returns the player's hand
-    std::vector<Card> getHand();
+    vector<Card> getHand();
 
 /// getHandString Function
 //
-/// \return std::string representing the player's hand
+/// \return string representing the player's hand
 /// returns the player's hand in string form
-	std::string getHandString();
+	string getHandString();
 
 
 /// getPlayerNum Function

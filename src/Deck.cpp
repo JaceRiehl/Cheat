@@ -94,7 +94,7 @@ Deck::Deck()
 //
 // \return vector<Card> of cards representing the deck
 // returns the private vector member of the deck
-std::vector<Card> Deck::getDeck()
+vector<Card> Deck::getDeck()
 {
 	return _deckVector;
 }
@@ -124,6 +124,6 @@ Card Deck::drawCard()
 // void function to shuffle the cards in the deck
 void Deck::shuffle()
 {
-	std::srand((unsigned int)time(0));
-	std::random_shuffle(_deckVector.begin(), _deckVector.end());
+	srand((unsigned int)time(0));
+	random_shuffle(_deckVector.begin(), _deckVector.end());
 }

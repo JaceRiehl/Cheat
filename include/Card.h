@@ -15,6 +15,9 @@
 #include <string>
 #include <stdexcept>
 
+using std::string;
+using std::out_of_range;
+
 /// Suit enumerator
 /// Enumerator to define the possible ranks of any card
 enum Suit
@@ -82,19 +85,19 @@ public:
 	//
 	/// \return string a string representing the rank of the card
 	/// returns a string representing the rank of the card
-	std::string getRankString() const;
+	string getRankString() const;
 
 	/// getSuitString function
 	//
 	/// \return string a string representing the suit of the card
 	/// returns a string representing the suit of the card
-	std::string getSuitString() const;
+	string getSuitString() const;
 
 	/// getCardString function
 	//
 	/// \return string a string representing the card's rank and suit
 	/// returns a string representing the card as a whole
-	std::string getCardString() const;
+	string getCardString() const;
 
 	/// == operator
 	//

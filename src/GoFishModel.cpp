@@ -37,7 +37,7 @@ Deck GoFishModel::getDeck()
 //
 // \return vector representing the players in the game
 // returns the vector of players in the game
-std::vector<Player> GoFishModel::getPlayers()
+vector<Player> GoFishModel::getPlayers()
 {
 	return _players;
 }

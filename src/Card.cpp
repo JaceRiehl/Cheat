@@ -43,7 +43,7 @@ Suit Card::getSuit() const
 //
 // \return string representing the rank of the card
 // returns a string representing the rank of the card
-std::string Card::getRankString() const
+string Card::getRankString() const
 {
 	switch(getRank())
 	{
@@ -73,7 +73,7 @@ std::string Card::getRankString() const
 			break;
 		case ace: return "Ace";
 			break;
-		default: throw std::out_of_range("Card rank out of range");
+		default: throw out_of_range("Card rank out of range");
 	}
 }
 
@@ -81,7 +81,7 @@ std::string Card::getRankString() const
 //
 // \return string representing the suit of the card
 // returns a string representing the suit of the card
-std::string Card::getSuitString() const
+string Card::getSuitString() const
 {
 	switch (getSuit())
 	{
@@ -93,7 +93,7 @@ std::string Card::getSuitString() const
 	   break;
 	case spades: return "Spades";
 	   break;
-	default: throw std::out_of_range("Card suit out of range");
+	default: throw out_of_range("Card suit out of range");
 	}
 }
 
@@ -101,7 +101,7 @@ std::string Card::getSuitString() const
 //
 // \return string representing the card's rank and suit
 // returns a string representing the card as a whole
-std::string Card::getCardString() const
+string Card::getCardString() const
 {
    return (getRankString() + " of " + getSuitString());
 }

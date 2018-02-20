@@ -18,6 +18,8 @@
 #include <vector>
 #include <cassert>
 
+using std::vector;
+
 enum Status
 {
 	start,
@@ -32,7 +34,7 @@ class GoFishModel
 private:
     int _dealLimit;
     Status _status;
-	std::vector<Player> _players;
+	vector<Player> _players;
 	Deck _deck;
 
 
@@ -63,7 +65,7 @@ public:
 //
 /// \return vector representing the players in the game
 /// returns the vector of players in the game
-    virtual std::vector<Player> getPlayers();
+    virtual vector<Player> getPlayers();
 
 /// addPlayers Function
 //
