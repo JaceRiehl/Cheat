@@ -44,7 +44,7 @@ public:
 /// Destructor
 //
 /// destructs the GoFishController object
-	~GoFishController();
+	~GoFishController() {};
 
 /// getModel Function
 //

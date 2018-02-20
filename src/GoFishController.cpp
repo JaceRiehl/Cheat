@@ -21,13 +21,6 @@ GoFishController::GoFishController(GoFishModel* model, GoFishView* view)
 {
 }
 
-// Destructor
-//
-// destructs the GoFishController object
-GoFishController::~GoFishController()
-{
-}
-
 // getModel Function
 //
 // \return GoFishModel* representing the model of the game

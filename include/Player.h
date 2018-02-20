@@ -40,7 +40,7 @@ public:
 /// Destructor
 //
 /// destructs the player object
-	~Player();
+	~Player() {};
 
 /// getHand Function
 //

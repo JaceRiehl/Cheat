@@ -11,20 +11,6 @@
 
 #include "GoFishView.h"
 
-// Default Constructor
-//
-// constructs the GoFishView object
-GoFishView::GoFishView()
-{
-}
-
-// Destructor
-//
-// destructs the GoFishView object
-GoFishView::~GoFishView()
-{
-}
-
 // printWelcome Function
 //
 // prints a welcome message and prompts the user for the number of players

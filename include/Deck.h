@@ -33,7 +33,7 @@ public:
 /// Destructor
 //
 /// destructs the deck object
-	~Deck();
+	~Deck() {};
 
 /// getDeck function
 //

@@ -23,13 +23,6 @@ GoFishModel::GoFishModel(Deck deck, int dealLimit, Status status)
 	_deck.shuffle();
 }
 
-// Destructor
-//
-// destructs the GoFishModel object
-GoFishModel::~GoFishModel()
-{
-}
-
 
 // getDeck Function
 //

@@ -64,7 +64,7 @@ public:
 	/// Destructor
 	//
 	/// destructs the card object
-	~Card();
+	~Card() {};
 
 	/// getRank function
 	//

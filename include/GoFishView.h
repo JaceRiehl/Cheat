@@ -26,12 +26,12 @@ public:
 /// Default Constructor
 //
 /// constructs the GoFishView object
-	GoFishView();
+	GoFishView() {};
 
 /// Destructor
 //
 /// destructs the GoFishView object
-	virtual ~GoFishView();
+	virtual ~GoFishView() {};
 
 /// printWelcome Function
 //

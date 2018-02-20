@@ -90,14 +90,6 @@ Deck::Deck()
 
 }
 
-// Destructor
-//
-// destructs the deck object
-Deck::~Deck()
-{
-
-}
-
 // getDeck function
 //
 // \return vector<Card> of cards representing the deck

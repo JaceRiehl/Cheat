@@ -20,13 +20,6 @@ Player::Player(int playerNum, int score)
 {
 }
 
-// Destructor
-//
-// destructs the player object
-Player::~Player()
-{
-}
-
 // getHand Function
 //
 // \return vector<Card> representing the player's hand

@@ -50,7 +50,7 @@ public:
 /// Destructor
 //
 /// destructs the GoFishModel object
-	virtual ~GoFishModel();
+	virtual ~GoFishModel() {};
 
 
 /// getDeck Function

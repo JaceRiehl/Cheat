@@ -21,13 +21,6 @@ Card::Card(Rank cardRank, Suit cardSuit)
 {
 }
 
-// Destructor
-//
-// destructs the card object
-Card::~Card()
-{
-}
-
 // getRank function
 //
 // \return Rank of the card within its suit
