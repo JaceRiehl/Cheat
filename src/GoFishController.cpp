@@ -78,19 +78,19 @@ void GoFishController::initPlayers()
 // takeTurn Function
 //
 // allows player to request a player and card
-void GoFishController::takeTurn(Player& player)
+void GoFishController::takeTurn(const int& playerIndex)
 {
 	Rank targetCard;
 	int rankIndex;
 	int playerChoice;
 	
-	_view->printPlayerRequest(static_cast<int>(_model->getPlayers().size()), player.getPlayerNum(), playerChoice, rankIndex);
+	_view->printPlayerRequest(static_cast<int>(_model->getPlayers().size()), playerIndex+1, playerChoice, rankIndex);
 	targetCard = Rank(rankIndex);
 
 	// now that both requests have been established, make the trade if possible
 	if (_model->getPlayers()[playerChoice].countRank(targetCard) > 0)
 	{
-		int cardsGiven = _model->getPlayers()[playerChoice].giveCards(targetCard, player);
+		int cardsGiven = _model->getPlayers()[playerChoice].giveCards(targetCard, _model->getPlayers()[playerIndex]);
 		_view->printHasCards(cardsGiven);
 	}
 	else
@@ -98,7 +98,7 @@ void GoFishController::takeTurn(Player& player)
 		_view->printGoFish();
 		if (!_model->getDeck().getDeck().empty())
 		{
-			player.receiveCard(_model->_deck.drawCard());
+			_model->getPlayers()[playerIndex].receiveCard(_model->_deck.drawCard());
 		}
 	}
 }
@@ -154,7 +154,7 @@ void GoFishController::update()
 			{
 				checkForWin();
 				_view->printStatus(_model->getPlayers()[i].getPlayerNum(), _model->getPlayers()[i].getScore(), _model->getPlayers()[i].getHandString());
-				takeTurn(_model->_players[i]);
+				takeTurn(i);
 			}
 		}
 		if (_model->getStatus() == done)
@@ -182,16 +182,10 @@ void GoFishController::update()
 // runs the game
 void GoFishController::play()
 {
-	assert(_model->getStatus() == start);
-
 	bool loop = true;
 	while (loop)
 	{
 		update();
-		if (_model->getStatus() == done)
-		{
-			loop = false;
-			break;
-		}
+		if (_model->getStatus() == done) break;
 	}
 }

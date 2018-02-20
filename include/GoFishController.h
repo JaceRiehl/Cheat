@@ -66,7 +66,7 @@ public:
 /// takeTurn Function
 //
 /// allows player to request a player and card
-	void takeTurn(Player& player);
+	void takeTurn(const int& playerIndex);
 
 /// checkForWin Function
 //

@@ -83,6 +83,7 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 	std::array<std::string, 13> rankArray = { "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "jack", "queen", "king", "ace" };
 	char playerTarget;
 	std::string cardChoice;
+	rankIndex = -1;
 
 	while (doneTurn == false)
 	{
@@ -97,21 +98,37 @@ void GoFishView::printPlayerRequest(const int& playerLimit, const int& playerNum
 			{
 				throw std::invalid_argument("ERROR: Invalid player selection.");
 			}
+			else
+			{
+				doneTurn = true;
+			}
+		}
+		catch (const std::invalid_argument& e)
+		{
+			clear(e);
+		}
+	}
+	doneTurn = false;
+	while (doneTurn == false)
+	{
+		try
+		{
 
 			// way to check and handle card requests here
-			while (doneTurn == false)
+			printCardRequest(cardChoice);
+			std::transform(cardChoice.begin(), cardChoice.end(), cardChoice.begin(), static_cast<int(*)(int)>(std::tolower));
+			for (int i = 0; i < 13; ++i)
 			{
-				printCardRequest(cardChoice);
-				std::transform(cardChoice.begin(), cardChoice.end(), cardChoice.begin(), static_cast<int(*)(int)>(std::tolower));
-				for (int i = 0; i < 13; ++i)
+				if (cardChoice == rankArray[i])
 				{
-					if (cardChoice == rankArray[i])
-					{
-						rankIndex = i;
-						doneTurn = true;
-						break;
-					}
+					rankIndex = i;
+					doneTurn = true;
+					break;
 				}
+			}
+			if (rankIndex == -1)
+			{
+				throw std::invalid_argument("ERROR: Invalid card selection.");
 			}
 		}
 		catch (const std::invalid_argument& e)

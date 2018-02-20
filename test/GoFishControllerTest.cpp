@@ -133,22 +133,71 @@ TEST(GoFishControllerTest, takeTurnHasCard)
 	GoFishController gc(mm, mv);
 
 	Deck deck;
-	Card card(ace, spades);
-	Player p1(1, 0);
-	Player p2(2, 0);
-	p2.receiveCard(card);
+	
+	Player player1;
+	Player player2(2, 0);
+
 	std::vector<Player> playerList;
-	playerList.push_back(p1);
-	playerList.push_back(p2);
+	playerList.push_back(player1);
+	playerList.push_back(player2);
+
+	// initialize player1's hand
+	Card card11(ace, hearts);
+	Card card12(two, hearts);
+	Card card13(three, hearts);
+	Card card14(four, hearts);
+	Card card15(five, hearts);
+	Card card16(six, hearts);
+	Card card17(two, diamonds);
+	playerList[0].receiveCard(card11);
+	playerList[0].receiveCard(card12);
+	playerList[0].receiveCard(card13);
+	playerList[0].receiveCard(card14);
+	playerList[0].receiveCard(card15);
+	playerList[0].receiveCard(card16);
+	playerList[0].receiveCard(card17);
+
+	// initialize player2's hand
+	Card card21(ace, clubs);
+	Card card22(two, clubs);
+	Card card23(three, clubs);
+	Card card24(four, clubs);
+	Card card25(five, clubs);
+	Card card26(six, clubs);
+	Card card27(three, spades);
+	playerList[1].receiveCard(card21);
+	playerList[1].receiveCard(card22);
+	playerList[1].receiveCard(card23);
+	playerList[1].receiveCard(card24);
+	playerList[1].receiveCard(card25);
+	playerList[1].receiveCard(card26);
+	playerList[1].receiveCard(card27);
+
+	// set expectations and take turn
 	ON_CALL(*mm, getPlayers())
 		.WillByDefault(Return(playerList));
 	EXPECT_CALL(*mv, printPlayerRequest(_, _, _, _))
-		.WillOnce(DoAll(SetArgReferee<2>(1), SetArgReferee<3>(12), Return()));
+		.WillOnce(DoAll(SetArgReferee<2>(1), SetArgReferee<3>(1), Return()));
 	EXPECT_CALL(*mm, getPlayers())
 		.Times(AtLeast(1))
 		.WillRepeatedly(Return(playerList));
 	EXPECT_CALL(*mv, printHasCards(_));
-	gc.takeTurn(p1);
+	gc.takeTurn(0);
+
+	// now make sure everything is still correct
+	EXPECT_EQ(9, playerList[0].getHandSize());
+	EXPECT_EQ("1) Ace of Hearts\n2) Two of Hearts\n3) Three of Hearts\n4) Four of Hearts\n5) Five of Hearts\n6) Six of Hearts\n7) Two of Diamonds\n8) Three of Clubs\n9) Three of Spades\n", playerList[0].getHandString());
+	EXPECT_EQ(7, playerList[1].getHandSize());
+	EXPECT_EQ("1) Ace of Clubs\n2) Two of Clubs\n3) Four of Clubs\n4) Five of Clubs\n5) Six of Clubs\n", playerList[1].getHandString());
+	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
+	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
+	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
+
 	delete mm;
 	delete mv;
 }
@@ -160,13 +209,47 @@ TEST(GoFishControllerTest, takeTurnGoFish)
 	GoFishController gc(mm, mv);
 
 	Deck deck;
-	Card card(ace, spades);
-	Player p1(1, 0);
-	Player p2(2, 0);
-	p2.receiveCard(card);
+	
+	Player player1;
+	Player player2(2, 0);
+
 	std::vector<Player> playerList;
-	playerList.push_back(p1);
-	playerList.push_back(p2);
+	playerList.push_back(player1);
+	playerList.push_back(player2);
+
+	// initialize player1's hand
+	Card card11(ace, hearts);
+	Card card12(two, hearts);
+	Card card13(three, hearts);
+	Card card14(four, hearts);
+	Card card15(five, hearts);
+	Card card16(six, hearts);
+	Card card17(two, diamonds);
+	playerList[0].receiveCard(card11);
+	playerList[0].receiveCard(card12);
+	playerList[0].receiveCard(card13);
+	playerList[0].receiveCard(card14);
+	playerList[0].receiveCard(card15);
+	playerList[0].receiveCard(card16);
+	playerList[0].receiveCard(card17);
+
+	// initialize player2's hand
+	Card card21(ace, clubs);
+	Card card22(two, clubs);
+	Card card23(three, clubs);
+	Card card24(four, clubs);
+	Card card25(five, clubs);
+	Card card26(six, clubs);
+	Card card27(three, spades);
+	playerList[1].receiveCard(card21);
+	playerList[1].receiveCard(card22);
+	playerList[1].receiveCard(card23);
+	playerList[1].receiveCard(card24);
+	playerList[1].receiveCard(card25);
+	playerList[1].receiveCard(card26);
+	playerList[1].receiveCard(card27);
+
+	// set expectations and take turn
 	EXPECT_CALL(*mv, printPlayerRequest(_, _, _, _))
 		.WillOnce(DoAll(SetArgReferee<2>(1), SetArgReferee<3>(11), Return()));
 	EXPECT_CALL(*mm, getPlayers())
@@ -177,7 +260,30 @@ TEST(GoFishControllerTest, takeTurnGoFish)
 		.WillRepeatedly(Return(deck));
 
 	EXPECT_CALL(*mv, printGoFish());
-	gc.takeTurn(p1);
+	gc.takeTurn(0);
+
+	// make sure everything is still correct
+	EXPECT_EQ(8, playerList[0].getHandSize());
+	EXPECT_EQ("1) Ace of Hearts\n2) Two of Hearts\n3) Three of Hearts\n4) Four of Hearts\n5) Five of Hearts\n6) Six of Hearts\n7) Two of Diamonds\n8) " + playerList[0].getHand()[7].getCardString() + "\n", playerList[0].getHandString());
+	EXPECT_EQ(7, playerList[1].getHandSize());
+	EXPECT_EQ("1) Ace of Clubs\n2) Two of Clubs\n3) Three of Clubs\n4) Four of Clubs\n5) Five of Clubs\n6) Six of Clubs\n7) Three of Spades\n", playerList[1].getHandString());
+	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
+	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
+	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
+	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
+
+	// now count player1's twos and player2's threes and make sure they match
+	EXPECT_EQ(2, playerList[0].countRank(two));
+	EXPECT_EQ(2, playerList[1].countRank(three));
+	EXPECT_EQ(2, playerList[0].countRank(two));
+	EXPECT_EQ(2, playerList[1].countRank(three));
+	EXPECT_EQ(playerList[1].countRank(three), playerList[0].countRank(two));
+	EXPECT_EQ(playerList[1].countRank(three), playerList[0].countRank(two));
+
 	delete mm;
 	delete mv;
 }
@@ -318,6 +424,9 @@ TEST(GoFishControllerTest, playKill)
 	EXPECT_CALL(*mm, getStatus())
 		.WillOnce(Return(start))
 		.WillRepeatedly(Return(done));
+
+	EXPECT_CALL(*mv, printWelcome(_))
+		.Times(AtLeast(1));
 
 	std::vector<Player> p;
 	EXPECT_CALL(*mv, printGameOver());

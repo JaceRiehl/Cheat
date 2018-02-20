@@ -113,13 +113,13 @@ int Player::countRank(const Rank& value)
 int Player::giveCards(const Rank& value, Player& otherPlayer)
 {
     int n = 0;
-    for (auto it = this->_hand.begin(); it != this->_hand.end(); )
+    for (auto it = _hand.begin(); it != _hand.end(); )
         {
             if (value == it->getRank())
             {
                 Card temp = *it;
-				it = this->_hand.erase(it);
 				otherPlayer.receiveCard(temp);
+				it = _hand.erase(it);
                 ++n;
             }
 			else
