@@ -19,71 +19,12 @@ Deck::Deck()
 	Rank tempRank;
 	Suit tempSuit;
 
-	for (int i = 0; i < 13; ++i)
+	for (int i = 0; i < rankMap.size(); ++i)
 	{
-		for (int j = 0; j < 4; ++j)
+		for (int j = 0; j < suitMap.size(); ++j)
 		{
-			switch (i)
-			{
-			case 1:
-				tempRank = two;
-				break;
-			case 2:
-				tempRank = three;
-				break;
-			case 3:
-				tempRank = four;
-				break;
-			case 4:
-				tempRank = five;
-				break;
-			case 5:
-				tempRank = six;
-				break;
-			case 6:
-				tempRank = seven;
-				break;
-			case 7:
-				tempRank = eight;
-				break;
-			case 8:
-				tempRank = nine;
-				break;
-			case 9:
-				tempRank = ten;
-				break;
-			case 10:
-				tempRank = jack;
-				break;
-			case 11:
-				tempRank = queen;
-				break;
-			case 12:
-				tempRank = king;
-				break;
-			case 0:
-				tempRank = ace;
-				break;
-			default:
-				break;
-			}
-			switch (j)
-			{
-			case 0:
-				tempSuit = hearts;
-				break;
-			case 1:
-				tempSuit = diamonds;
-				break;
-			case 2:
-				tempSuit = clubs;
-				break;
-			case 3:
-				tempSuit = spades;
-				break;
-			default:
-				break;
-			}
+			tempRank = rankMap[i];
+			tempSuit = suitMap[j];
 			_deckVector.push_back(Card(tempRank, tempSuit));
 		}
 	}

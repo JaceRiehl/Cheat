@@ -38,20 +38,20 @@ TEST(DeckTest, sizeCheck)
 TEST(DeckTest, drawCheck)
 {
 	Deck deck1;
-	EXPECT_EQ(king, deck1.drawCard().getRank());
+	EXPECT_EQ(ace, deck1.drawCard().getRank());
 	EXPECT_EQ(clubs, deck1.drawCard().getSuit());
 	EXPECT_EQ(diamonds, deck1.drawCard().getSuit());
 	EXPECT_EQ(hearts, deck1.drawCard().getSuit());
 	EXPECT_EQ(spades, deck1.drawCard().getSuit());
-	EXPECT_EQ(queen, deck1.drawCard().getRank());
+	EXPECT_EQ(king, deck1.drawCard().getRank());
 	EXPECT_EQ(diamonds, deck1.drawCard().getSuit());
 	Deck deck2;
-	EXPECT_EQ(king, deck2.drawCard().getRank());
+	EXPECT_EQ(ace, deck2.drawCard().getRank());
 	EXPECT_EQ(clubs, deck2.drawCard().getSuit());
 	EXPECT_EQ(diamonds, deck2.drawCard().getSuit());
 	EXPECT_EQ(hearts, deck2.drawCard().getSuit());
 	EXPECT_EQ(spades, deck2.drawCard().getSuit());
-	EXPECT_EQ(queen, deck2.drawCard().getRank());
+	EXPECT_EQ(king, deck2.drawCard().getRank());
 	EXPECT_EQ(diamonds, deck2.drawCard().getSuit());
 }
 

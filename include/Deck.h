@@ -16,16 +16,22 @@
 #include <vector>
 #include <ctime>
 #include <algorithm>
+#include <map>
 
 using std::vector;
 using std::srand;
 using std::random_shuffle;
+using std::map;
 
 class Deck
 {
 /// Class Members
 private:
 	vector<Card> _deckVector;
+
+protected:
+	map<int, Rank> rankMap = { {0, two}, {1, three}, {2, four}, {3, five}, {4, six}, {5, seven}, {6, eight}, {7, nine}, {8, ten}, {9, jack}, {10, queen}, {11, king}, {12, ace} };
+	map<int, Suit> suitMap = { {0, hearts}, {1, diamonds}, {2, clubs}, {3, spades} };
 
 /// Class Member Functions
 public:
