@@ -1,3 +1,6 @@
+[![build status](http://ares-mat17.cs.uleth.ca/gitlab/cpsc3720/CodeReviewSpring2018/JaceRiehl/badges/master/build.svg)](http://ares-mat17.cs.uleth.ca/gitlab/cpsc3720/CodeReviewSpring2018/JaceRiehl/commits/master)
+[![coverage report](http://ares-mat17.cs.uleth.ca/gitlab/cpsc3720/CodeReviewSpring2018/JaceRiehl/badges/master/coverage.svg)](http://ares-mat17.cs.uleth.ca/gitlab/cpsc3720/CodeReviewSpring2018/JaceRiehl/commits/master)
+
 # Developer Role
 1.	Fork the repository of the person that will review your code on GitLab.
    1.	The Reviewer for your code is the person in the table below who is in the “Reviewer” column where you are in the “Developer” column.
