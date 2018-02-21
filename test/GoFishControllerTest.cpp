@@ -132,15 +132,11 @@ TEST(GoFishControllerTest, takeTurnHasCard)
 	MockGoFishView* mv = new MockGoFishView();
 	GoFishController gc(mm, mv);
 
-	Deck deck;
-	
-	Player player1;
-	Player player2(2, 0);
-
-	std::vector<Player> playerList;
-	playerList.push_back(player1);
-	playerList.push_back(player2);
-
+	vector<Player> playerList;
+	Player p1;
+	Player p2;
+	playerList.push_back(p1);
+	playerList.push_back(p2);
 	// initialize player1's hand
 	Card card11(ace, hearts);
 	Card card12(two, hearts);
@@ -172,6 +168,7 @@ TEST(GoFishControllerTest, takeTurnHasCard)
 	playerList[1].receiveCard(card25);
 	playerList[1].receiveCard(card26);
 	playerList[1].receiveCard(card27);
+
 
 	// set expectations and take turn
 	ON_CALL(*mm, getPlayers())
@@ -184,20 +181,6 @@ TEST(GoFishControllerTest, takeTurnHasCard)
 	EXPECT_CALL(*mv, printHasCards(_));
 	gc.takeTurn(0);
 
-	// now make sure everything is still correct
-	EXPECT_EQ(9, playerList[0].getHandSize());
-	EXPECT_EQ("1) Ace of Hearts\n2) Two of Hearts\n3) Three of Hearts\n4) Four of Hearts\n5) Five of Hearts\n6) Six of Hearts\n7) Two of Diamonds\n8) Three of Clubs\n9) Three of Spades\n", playerList[0].getHandString());
-	EXPECT_EQ(7, playerList[1].getHandSize());
-	EXPECT_EQ("1) Ace of Clubs\n2) Two of Clubs\n3) Four of Clubs\n4) Five of Clubs\n5) Six of Clubs\n", playerList[1].getHandString());
-	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
-	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
-	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
-
 	delete mm;
 	delete mv;
 }
@@ -208,46 +191,12 @@ TEST(GoFishControllerTest, takeTurnGoFish)
 	MockGoFishView* mv = new MockGoFishView();
 	GoFishController gc(mm, mv);
 
+	vector<Player> playerList;
+	Player p1;
+	Player p2;
+	playerList.push_back(p1);
+	playerList.push_back(p2);
 	Deck deck;
-	
-	Player player1;
-	Player player2(2, 0);
-
-	std::vector<Player> playerList;
-	playerList.push_back(player1);
-	playerList.push_back(player2);
-
-	// initialize player1's hand
-	Card card11(ace, hearts);
-	Card card12(two, hearts);
-	Card card13(three, hearts);
-	Card card14(four, hearts);
-	Card card15(five, hearts);
-	Card card16(six, hearts);
-	Card card17(two, diamonds);
-	playerList[0].receiveCard(card11);
-	playerList[0].receiveCard(card12);
-	playerList[0].receiveCard(card13);
-	playerList[0].receiveCard(card14);
-	playerList[0].receiveCard(card15);
-	playerList[0].receiveCard(card16);
-	playerList[0].receiveCard(card17);
-
-	// initialize player2's hand
-	Card card21(ace, clubs);
-	Card card22(two, clubs);
-	Card card23(three, clubs);
-	Card card24(four, clubs);
-	Card card25(five, clubs);
-	Card card26(six, clubs);
-	Card card27(three, spades);
-	playerList[1].receiveCard(card21);
-	playerList[1].receiveCard(card22);
-	playerList[1].receiveCard(card23);
-	playerList[1].receiveCard(card24);
-	playerList[1].receiveCard(card25);
-	playerList[1].receiveCard(card26);
-	playerList[1].receiveCard(card27);
 
 	// set expectations and take turn
 	EXPECT_CALL(*mv, printPlayerRequest(_, _, _, _))
@@ -261,28 +210,6 @@ TEST(GoFishControllerTest, takeTurnGoFish)
 
 	EXPECT_CALL(*mv, printGoFish());
 	gc.takeTurn(0);
-
-	// make sure everything is still correct
-	EXPECT_EQ(8, playerList[0].getHandSize());
-	EXPECT_EQ("1) Ace of Hearts\n2) Two of Hearts\n3) Three of Hearts\n4) Four of Hearts\n5) Five of Hearts\n6) Six of Hearts\n7) Two of Diamonds\n8) " + playerList[0].getHand()[7].getCardString() + "\n", playerList[0].getHandString());
-	EXPECT_EQ(7, playerList[1].getHandSize());
-	EXPECT_EQ("1) Ace of Clubs\n2) Two of Clubs\n3) Three of Clubs\n4) Four of Clubs\n5) Five of Clubs\n6) Six of Clubs\n7) Three of Spades\n", playerList[1].getHandString());
-	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[1].getHand()[1].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
-	EXPECT_EQ(two, playerList[0].getHand()[6].getRank());
-	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
-	EXPECT_EQ(three, playerList[1].getHand()[6].getRank());
-
-	// now count player1's twos and player2's threes and make sure they match
-	EXPECT_EQ(2, playerList[0].countRank(two));
-	EXPECT_EQ(2, playerList[1].countRank(three));
-	EXPECT_EQ(2, playerList[0].countRank(two));
-	EXPECT_EQ(2, playerList[1].countRank(three));
-	EXPECT_EQ(playerList[1].countRank(three), playerList[0].countRank(two));
-	EXPECT_EQ(playerList[1].countRank(three), playerList[0].countRank(two));
 
 	delete mm;
 	delete mv;
@@ -421,18 +348,21 @@ TEST(GoFishControllerTest, playKill)
 	MockGoFishView* mv = new MockGoFishView();
 	GoFishController gc(mm, mv);
 	
-	EXPECT_CALL(*mm, getStatus())
-		.WillOnce(Return(start))
-		.WillRepeatedly(Return(done));
+	Player p1(1, 0);
+	Player p2(2, 0);
+	Player p3(3, 0);
+	Player p1A(1, 0);
+	std::vector<Player> pl1 = { p1, p2, p3 };
 
-	EXPECT_CALL(*mv, printWelcome(_))
-		.Times(AtLeast(1));
-
-	std::vector<Player> p;
-	EXPECT_CALL(*mv, printGameOver());
 	EXPECT_CALL(*mm, getPlayers())
 		.Times(AtLeast(1))
-		.WillRepeatedly(Return(p));
+		.WillRepeatedly(Return(pl1));
+
+	EXPECT_CALL(*mm, getStatus())
+		.Times(AtLeast(1))
+		.WillRepeatedly(Return(done));
+
+	EXPECT_CALL(*mv, printGameOver());
 
 	gc.play();
 	
