@@ -4,7 +4,7 @@ CXXFLAGS= -std=c++0x -g -fprofile-arcs -ftest-coverage
 LINKFLAGS= -lgtest
 
 SRC_DIR = src
-SRCS = src/Player.cpp src/Card.cpp src/Deck.cpp src/GoFishView.cpp src/GoFishController.cpp src/GoFishModel.cpp
+SRCS = $(filter-out src/cardGame.cpp, $(wildcard src/*.cpp))
 
 TEST_DIR = test
 
