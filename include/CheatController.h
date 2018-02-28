@@ -1,3 +1,5 @@
+#ifndef CHEATCONTROLLER_H
+#define CHEATCONTROLLER_H
 #include "GoFishView.h"
 #include <algorithm>
 #include <limits>
