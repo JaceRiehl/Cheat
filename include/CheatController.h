@@ -1,6 +1,9 @@
 #ifndef CHEATCONTROLLER_H
 #define CHEATCONTROLLER_H
-#include "GoFishView.h"
+#include "CheatView.h"
+#include "Deck.h"
+#include "Player.h"
+#include "Card.h"
 #include <algorithm>
 #include <limits>
 #include <iostream>
@@ -22,7 +25,7 @@ public:
 	*@param CheatView* v  The view object 
 	*@param Deck* d the deck object that will be used 
 	*/
-	CheatController(vector<Player*> play, CheatView* v, Deck* d): view(v), players(play), dealersDeck(deck) {}
+	CheatController(vector<Player*> play, CheatView* v, Deck* d): view(v), players(play), dealersDeck(d) {}
 	/**
 	*Class Destructor
 	*/ 
@@ -64,4 +67,7 @@ private:
 	vector<Player*> players;
 	Deck* dealersDeck;
 	vector<Card> pile; 
+	int numPlayers;
 };
+
+#endif
