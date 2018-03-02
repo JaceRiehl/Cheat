@@ -2,29 +2,36 @@
 
 CheatController::~CheatController()
 {
-	if(dealersDeck != nullptr)
+	if(_dealersDeck != nullptr)
 	{
-		delete dealersDeck;
-		dealersDeck = nullptr; 
+		delete _dealersDeck;
+		_dealersDeck = nullptr; 
 	}
-	if(view != nullptr)
+	if(_view != nullptr)
 	{
-		delete view;
-		view = nullptr;
+		delete _view;
+		_view = nullptr;
 	}
 
 }
 	
 void CheatController::startGame()
 {
-	dealersDeck->shuffle();
-    view->welcomeMessage();
-    numPlayers = view->chooseNumPlayers(10);
+	_dealersDeck->shuffle();
+    _view->welcomeMessage();
+    _numPlayers = _view->chooseNumPlayers(10);
 }
 
 void CheatController::initalDeal()
 {
-
+	int cardsPerPlayer = floor(_dealersDeck->getSize() / _numPlayers);
+	for(int player=0; player<cardsPerPlayer; player++)
+	{
+		for(int cardsDealt=0; cardsDealt<cardsPerPlayer; cardsDealt++)
+		{
+			_players[player]->receiveCard(_dealersDeck->drawCard());
+		}
+	}
 }
 
 void CheatController::goFishDeal(int)

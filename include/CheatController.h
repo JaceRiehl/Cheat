@@ -13,6 +13,7 @@
 #include <array>
 #include <vector>
 #include <cassert>
+#include <math.h> 
 /**
 *Implements the game Cheat.
 */ 
@@ -25,7 +26,7 @@ public:
 	*@param CheatView* v  The view object 
 	*@param Deck* d the deck object that will be used 
 	*/
-	CheatController(vector<Player*> play, CheatView* v, Deck* d): view(v), players(play), dealersDeck(d) {}
+	CheatController(vector<Player*> play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
 	/**
 	*Class Destructor
 	*/ 
@@ -63,11 +64,11 @@ public:
 
 
 private: 
-	CheatView* view;
-	vector<Player*> players;
-	Deck* dealersDeck;
-	vector<Card> pile; 
-	int numPlayers;
+	CheatView* _view;
+	vector<Player*> _players;
+	Deck* _dealersDeck;
+	vector<Card> _pile; 
+	int _numPlayers;
 };
 
 #endif

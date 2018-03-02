@@ -67,5 +67,13 @@ void CheatView::clearTerminal()
 
 bool CheatView::callCheat(int numPlayers)
 {
-
+	for(int i=0; i<numPlayers;i++)
+	{
+		char input = 'n';
+		do
+		{
+		cout << "Do you want to call cheat, Player " << i+1 <<"? (y/n): ";
+		}
+		while(input != 'n' || input != 'y'); 
+	}
 }
