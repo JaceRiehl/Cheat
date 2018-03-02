@@ -32,24 +32,21 @@ void CheatController::initalDeal()
 			_players[player]->receiveCard(_dealersDeck->drawCard());
 		}
 	}
-}
-
-void CheatController::goFishDeal(int)
-{
-
+	if(_dealersDeck->getSize() != 0)
+		_pile = _dealersDeck->getDeck(); 
 }
 
 void CheatController::runGame()
 {
-
+	//play a turn
+	//ask if anyone wants to cheat 
+	//check if anyone has any cards left 
+	//loop 
 }
 
 int CheatController::turn(int)
 {
-
-}
-
-int CheatController::mostMatches()
-{
+	//display last card of vector
+	//ask the player what card to play 
 
 }

@@ -41,11 +41,6 @@ public:
 	*/
 	virtual void initalDeal();
 	/**
-	*Deals a card to the player if they get a 'GoFish' (the player they fished didn't have the card).
-	@param int that is the index of the player in the players vector
-	*/
-	virtual void goFishDeal(int);
-	/**
 	*runGame does the loop that calls the appropriate functions to run the game until the game is won.
 	*/
 	virtual void runGame();
@@ -55,11 +50,7 @@ public:
 	*@return The index of the Player in the players vector taking a turn.
 	*/
 	virtual int turn(int);
-	/**
-	*Checks who has the most matches of the players in the Player vector.
-	*@return The index of the player who has the most matches.
-	*/
-	virtual int mostMatches();
+
 
 
 

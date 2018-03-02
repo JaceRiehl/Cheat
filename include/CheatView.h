@@ -51,6 +51,7 @@ public:
 	*
 	*/
 	virtual bool callCheat(int numPlayers);
+	
 
 };
 
