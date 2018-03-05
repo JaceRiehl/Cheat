@@ -17,12 +17,8 @@ using namespace ::testing;
 class MockPlayer : public Player
 {
 public:
-	explicit MockPlayer()
-	{
-	}
-	virtual ~MockPlayer()
-	{
-	}
+	explicit MockPlayer(int pN): Player(pN){}
+	virtual ~MockPlayer(){}
 
 	MOCK_METHOD0(getHand, std::vector<Card>());
 	MOCK_METHOD0(getHandString, std::string());
