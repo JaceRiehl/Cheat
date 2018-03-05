@@ -56,9 +56,6 @@ void CheatController::runGame()
 
 int CheatController::turn(int playerIndex)
 {
-	//display turn 
-	//display the card to be discarced
-	//ask the player what card to play 
 	int numCardsDiscarded = 1;
 	_view->displayTurn(playerIndex + 1);
 	_players[playerIndex]->sortHand();
@@ -79,7 +76,6 @@ int CheatController::turn(int playerIndex)
 		if(numCardsDiscarded == 4)
 			break;
 	}
-	_view->displayPlayersHand(_pile);
 	int playerCalledCheatIndex = _view->callCheat(_numPlayers, playerIndex);
 	if(playerCalledCheatIndex != -1)
 	{
