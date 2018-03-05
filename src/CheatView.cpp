@@ -7,10 +7,24 @@ void CheatView::welcomeMessage()
 
 }
 
-int CheatView::chooseCard(int)
+int CheatView::chooseCard(int maxCard)
 {
-
+	int card;
+    char cardNum;
+    cout << "Which card number do you want to discard? (1-" << maxCard << ") ";
+    while(cin >> cardNum)
+    {
+        card = cardNum - '0';
+        if(card >= 1 && card <= maxCard)
+        {
+            break;
+        }
+        cin.ignore(10000, '\n');
+        cout << "Enter a valid input (1-" << maxCard << ") ";
+    }
+    return card;
 }
+
 int CheatView::chooseNumPlayers(int maxPlayers)
 {
     int players;
@@ -65,15 +79,39 @@ void CheatView::clearTerminal()
         cout << '\n';
 }
 
-bool CheatView::callCheat(int numPlayers)
+int CheatView::callCheat(int numPlayers)
 {
 	for(int i=0; i<numPlayers;i++)
 	{
-		char input = 'n';
+		char input = 'N';
 		do
 		{
 		cout << "Do you want to call cheat, Player " << i+1 <<"? (y/n): ";
+		cin >> input;
 		}
 		while(input != 'n' || input != 'y'); 
+		if(input == 'y')
+			return i;
 	}
 }
+
+
+void CheatView::displayCard(string card)
+{
+	cout << "The Card to be discarded is a: " << card << endl;
+}
+
+bool CheatView::continueDiscarding()
+{
+	char input = 'N';
+	do{
+		cout << "Do you want to discard another card? (y/n) ";
+		cin >> input;
+	}
+	while(input != 'n' || input != 'y');
+	if(input == 'y')
+		return true; 
+	else if (input == 'n')
+		return false;  
+}
+

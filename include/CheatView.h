@@ -50,8 +50,15 @@ public:
 	/**
 	*
 	*/
-	virtual bool callCheat(int numPlayers);
-	
+	virtual int callCheat(int numPlayers);
+	/**
+	*
+	*/
+	virtual void displayCard(string c);
+	/**
+	*
+	*/
+	virtual bool continueDiscarding();
 
 };
 

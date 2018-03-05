@@ -123,6 +123,18 @@ int Player::giveCards(const Rank& value, Player& otherPlayer)
         return n;
 }
 
+/// takeCard Function
+//
+/// \param[in] indexOfHand the index of card to remove
+/// \return Card the Card to remove
+/// Takes the card out of the Players hand from the given index
+Card Player::takeCard(int indexOfHand)
+{
+    Card cR = _hand[indexOfHand];
+    _hand.erase(_hand.begin()+indexOfHand);
+    return cR;
+}
+
 // receivePoint Function
 //
 // function to increase the player's score by one

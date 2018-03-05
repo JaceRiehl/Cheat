@@ -14,6 +14,7 @@
 #include <vector>
 #include <cassert>
 #include <math.h> 
+using std::string;
 /**
 *Implements the game Cheat.
 */ 
@@ -50,7 +51,12 @@ public:
 	*@return The index of the Player in the players vector taking a turn.
 	*/
 	virtual int turn(int);
-
+	/**
+	*Helper to turn, it checks if cheat is valid or not
+	*@param int that is the players number.
+	*@return bool whether the player did cheat
+	*/
+	virtual bool didCheat(int);
 
 
 
@@ -60,6 +66,8 @@ private:
 	Deck* _dealersDeck;
 	vector<Card> _pile; 
 	int _numPlayers;
+	vector<string> _discard = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	int _discardIndex = 0;
 };
 
 #endif
