@@ -81,6 +81,7 @@ void CheatView::clearTerminal()
 
 int CheatView::callCheat(int numPlayers)
 {
+	int defaultReturn = -1;
 	for(int i=0; i<numPlayers;i++)
 	{
 		char input = 'N';
@@ -93,6 +94,7 @@ int CheatView::callCheat(int numPlayers)
 		if(input == 'y')
 			return i;
 	}
+	return defaultReturn;
 }
 
 

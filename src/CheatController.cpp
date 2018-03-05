@@ -69,9 +69,9 @@ int CheatController::turn(int playerIndex)
 	//ask the player what card to play 
 	int numCardsDiscarded = 1;
 	_view->displayTurn(playerIndex + 1);
+	_view->displayPlayersHand(_players[playerIndex]->getHand());
 	_view->displayCard(_discard[_discardIndex]);
-	++_discardIndex;
-	_discardIndex = _discardIndex % _discard.size();
+	
 	int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
 	_players[playerIndex]->takeCard(discard);
 	while(_view->continueDiscarding() && numCardsDiscarded < 3)
@@ -80,16 +80,33 @@ int CheatController::turn(int playerIndex)
 		_players[playerIndex]->takeCard(discard);
 		++numCardsDiscarded;
 	}
-	if(didCheat(numCardsDiscarded))
+	int playerCalledCheatIndex = _view->callCheat(_numPlayers);
+	if(playerCalledCheatIndex != -1)
 	{
-		//if(didCheat())
-			//add cards
+		int playerGettingCards = playerCalledCheatIndex;
+		if(didCheat(numCardsDiscarded))
+			playerGettingCards = playerIndex;
+		if(!_pile.empty())
+		{
+			for(vector<Card>::iterator it = _pile.begin(); it != _pile.end(); ++it)
+				{
+					_players[playerGettingCards]->receiveCard(*it);
+				}
+			_pile.clear(); 
+		}
 	}
-
-
+	++_discardIndex;
+	_discardIndex = _discardIndex % _discard.size();
 }
 
-bool CheatController::didCheat(int)
+bool CheatController::didCheat(int numCardsDiscarded)
 {
-
+	for(int i = _pile.size() - numCardsDiscarded; i<_pile.size();++i)
+	{
+		if(_pile[i].getRankString() != _discard[_discardIndex])
+		{
+			return true; 
+		}
+	}
+	return false;
 }
