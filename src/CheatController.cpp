@@ -20,12 +20,13 @@ void CheatController::startGame()
 	_dealersDeck->shuffle();
     _view->welcomeMessage();
     _numPlayers = _view->chooseNumPlayers(10);
+    cout << _numPlayers << endl;
 }
 
 void CheatController::initalDeal()
 {
 	int cardsPerPlayer = floor(_dealersDeck->getSize() / _numPlayers);
-	for(int player=0; player<cardsPerPlayer; player++)
+	for(int player=0; player<_numPlayers; player++)
 	{
 		for(int cardsDealt=0; cardsDealt<cardsPerPlayer; cardsDealt++)
 		{
@@ -69,18 +70,21 @@ int CheatController::turn(int playerIndex)
 	//ask the player what card to play 
 	int numCardsDiscarded = 1;
 	_view->displayTurn(playerIndex + 1);
+	_players[playerIndex]->sortHand();
 	_view->displayPlayersHand(_players[playerIndex]->getHand());
 	_view->displayCard(_discard[_discardIndex]);
 	
 	int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
 	_players[playerIndex]->takeCard(discard);
-	while(_view->continueDiscarding() && numCardsDiscarded < 3)
+	while(_view->continueDiscarding())
 	{
 		int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
 		_players[playerIndex]->takeCard(discard);
 		++numCardsDiscarded;
+		if(numCardsDiscarded == 3)
+			break;
 	}
-	int playerCalledCheatIndex = _view->callCheat(_numPlayers);
+	int playerCalledCheatIndex = _view->callCheat(_numPlayers, playerIndex);
 	if(playerCalledCheatIndex != -1)
 	{
 		int playerGettingCards = playerCalledCheatIndex;

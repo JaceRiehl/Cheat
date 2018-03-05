@@ -79,7 +79,7 @@ void CheatView::clearTerminal()
         cout << '\n';
 }
 
-int CheatView::callCheat(int numPlayers)
+int CheatView::callCheat(int numPlayers, int playerNum)
 {
 	int defaultReturn = -1;
 	for(int i=0; i<numPlayers;i++)
@@ -87,10 +87,15 @@ int CheatView::callCheat(int numPlayers)
 		char input = 'N';
 		do
 		{
-		cout << "Do you want to call cheat, Player " << i+1 <<"? (y/n): ";
-		cin >> input;
+			if(i != playerNum)
+			{
+				cout << "Do you want to call cheat, Player " << i+1 <<"? (y/n): ";
+				cin >> input;
+			}
+			else
+				break; 
 		}
-		while(input != 'n' || input != 'y'); 
+		while(input != 'n' && input != 'y'); 
 		if(input == 'y')
 			return i;
 	}
@@ -110,7 +115,7 @@ bool CheatView::continueDiscarding()
 		cout << "Do you want to discard another card? (y/n) ";
 		cin >> input;
 	}
-	while(input != 'n' || input != 'y');
+	while(input != 'n' && input != 'y');
 	if(input == 'y')
 		return true; 
 	else if (input == 'n')

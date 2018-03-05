@@ -4,13 +4,15 @@
 #include "Deck.h"
 #include "Player.h"
 #include "Card.h"
+#include <stdio.h>
+#include <ctype.h>
 using namespace std; 
 
 class CheatView
 {
 public:
-	CheatView();
-	virtual ~CheatView();
+	CheatView(){}
+	virtual ~CheatView(){}
 	virtual void welcomeMessage();
 	/**
 	*Choose the Card number that will be checked against a player.
@@ -50,7 +52,7 @@ public:
 	/**
 	*
 	*/
-	virtual int callCheat(int numPlayers);
+	virtual int callCheat(int, int);
 	/**
 	*
 	*/

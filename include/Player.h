@@ -17,11 +17,13 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <algorithm>
 #include "Card.h"
 
 using std::string;
 using std::vector;
 using std::to_string;
+using std::sort;
 
 class Player
 {
@@ -109,6 +111,12 @@ public:
 //
 /// function to increase the player's score by one
     void receivePoint();
+
+/// sortHand Function
+//
+/// sorts the players hand
+    virtual void sortHand();
+
 };
 
 #endif

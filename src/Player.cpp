@@ -11,6 +11,12 @@
 
 #include "Player.h"
 
+// sortBy function 
+// \param[in] Card1 One of the cards to be compared 
+// \param[in] Card2 One of the cards to be compared 
+//
+//Helper function for sorting
+bool sortBy(Card, Card);
 // Constructor
 //
 // \param [in] score an integer representing the score of the player
@@ -141,6 +147,26 @@ Card Player::takeCard(int indexOfHand)
 void Player::receivePoint()
 {
     ++_score;
+}
+
+// sortBy function 
+// \param[in] Card1 One of the cards to be compared 
+// \param[in] Card2 One of the cards to be compared 
+//
+//Helper function for sorting
+bool sortBy(Card c1, Card c2)
+{
+    string s1 = c1.getRankString();
+    string s2 = c2.getRankString();
+    return s1 < s2;
+}
+
+// sortHand Function
+//
+// sorts the players hand
+void Player::sortHand()
+{
+    sort(_hand.begin(), _hand.end(), sortBy);
 }
 
 
