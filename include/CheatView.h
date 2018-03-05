@@ -1,12 +1,18 @@
 #ifndef CHEATVIEW_H
 #define CHEATVIEW_H
 #include <iostream> 
+#include "Deck.h"
+#include "Player.h"
+#include "Card.h"
+#include <stdio.h>
+#include <ctype.h>
 using namespace std; 
 
 class CheatView
 {
-	CheatView();
-	virtual ~CheatView();
+public:
+	CheatView(){}
+	virtual ~CheatView(){}
 	virtual void welcomeMessage();
 	/**
 	*Choose the Card number that will be checked against a player.
@@ -24,7 +30,7 @@ class CheatView
 	*Display the hand inputted.
 	*@param Vector of Card to be displayed
 	*/
-	virtual void coutDisplayPlayersHand(vector<Card>);
+	virtual void displayPlayersHand(vector<Card>);
 	/**
 	*Displays which Players' turn it is.
 	*@param The Player who's turn it is.
@@ -43,6 +49,18 @@ class CheatView
 	*Clears the terminal so that the player can't see the other players hand.
 	*/
 	virtual void clearTerminal();
+	/**
+	*
+	*/
+	virtual int callCheat(int, int);
+	/**
+	*
+	*/
+	virtual void displayCard(string c);
+	/**
+	*
+	*/
+	virtual bool continueDiscarding();
 
 };
 

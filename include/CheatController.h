@@ -1,6 +1,9 @@
 #ifndef CHEATCONTROLLER_H
 #define CHEATCONTROLLER_H
-#include "GoFishView.h"
+#include "CheatView.h"
+#include "Deck.h"
+#include "Player.h"
+#include "Card.h"
 #include <algorithm>
 #include <limits>
 #include <iostream>
@@ -10,6 +13,8 @@
 #include <array>
 #include <vector>
 #include <cassert>
+#include <math.h> 
+using std::string;
 /**
 *Implements the game Cheat.
 */ 
@@ -22,7 +27,7 @@ public:
 	*@param CheatView* v  The view object 
 	*@param Deck* d the deck object that will be used 
 	*/
-	CheatController(vector<Player*> play, CheatView* v, Deck* d): view(v), players(play), dealersDeck(deck) {}
+	CheatController(const vector<Player*> &play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
 	/**
 	*Class Destructor
 	*/ 
@@ -37,11 +42,6 @@ public:
 	*/
 	virtual void initalDeal();
 	/**
-	*Deals a card to the player if they get a 'GoFish' (the player they fished didn't have the card).
-	@param int that is the index of the player in the players vector
-	*/
-	virtual void goFishDeal(int);
-	/**
 	*runGame does the loop that calls the appropriate functions to run the game until the game is won.
 	*/
 	virtual void runGame();
@@ -52,16 +52,22 @@ public:
 	*/
 	virtual int turn(int);
 	/**
-	*Checks who has the most matches of the players in the Player vector.
-	*@return The index of the player who has the most matches.
+	*Helper to turn, it checks if cheat is valid or not
+	*@param int that is the players number.
+	*@return bool whether the player did cheat
 	*/
-	virtual int mostMatches();
+	virtual bool didCheat(int);
 
 
 
 private: 
-	CheatView* view;
-	vector<Player*> players;
-	Deck* dealersDeck;
-	vector<Card> pile; 
+	CheatView* _view;
+	vector<Player*> _players;
+	Deck* _dealersDeck;
+	vector<Card> _pile; 
+	int _numPlayers = 0;
+	vector<string> _discard = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	int _discardIndex = 0;
 };
+
+#endif

@@ -15,15 +15,6 @@
 
 class DeckTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-
-	}
-	virtual void tearDown()
-	{
-
-	}
 };
 
 TEST(DeckTest, sizeCheck)
@@ -57,19 +48,9 @@ TEST(DeckTest, drawCheck)
 
 TEST(DeckTest, shuffleCheck)
 {
-	bool different = false;
-	for (int i = 0; i < 1000000 && different == false; ++i)
-	{
-		Deck deck1;
-		Deck deck2;
-		deck1.shuffle();
-		deck2.shuffle();
-		if ((deck1.drawCard().getRank() != deck2.drawCard().getRank()) || (deck1.drawCard().getSuit() != deck2.drawCard().getSuit()))
-		{
-			different = true;
-			break;
-		}
-	}
-	EXPECT_TRUE(different);
+	Deck deck1;
+	deck1.shuffle();
+	ASSERT_TRUE(deck1.drawCard().getRankString() != "2" || deck1.drawCard().getRankString() != "2" 
+		||deck1.drawCard().getRankString() != "2" ||deck1.drawCard().getRankString() != "2");
 
 }

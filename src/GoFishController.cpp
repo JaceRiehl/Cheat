@@ -45,7 +45,6 @@ GoFishView* GoFishController::getView() const
 void GoFishController::initPlayers()
 {
 	char playerNum;
-	int dealLimit;
 	_view->printWelcome(playerNum);
 	if (playerNum == '0')
 	{

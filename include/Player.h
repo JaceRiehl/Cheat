@@ -17,11 +17,13 @@
 #include <vector>
 #include <string>
 #include <cstdlib>
+#include <algorithm>
 #include "Card.h"
 
 using std::string;
 using std::vector;
 using std::to_string;
+using std::sort;
 
 class Player
 {
@@ -98,10 +100,23 @@ public:
 /// finds cards in the hand of the given rank and gives them to the requesting player, also counting every card that is given
     int giveCards(const Rank& value, Player& otherPlayer);
 
+/// takeCard Function
+//
+/// \param[in] indexOfHand the index of card to remove
+/// \return Card the Card to remove
+/// Takes the card out of the Players hand from the given index
+    Card takeCard(int indexOfHand);
+
 /// receivePoint Function
 //
 /// function to increase the player's score by one
     void receivePoint();
+
+/// sortHand Function
+//
+/// sorts the players hand
+    virtual void sortHand();
+
 };
 
 #endif

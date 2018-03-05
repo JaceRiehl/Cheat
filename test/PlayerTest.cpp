@@ -14,15 +14,6 @@
 
 class PlayerTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-
-	}
-	virtual void tearDown()
-	{
-
-	}
 };
 
 TEST(PlayerTest, defaultValues)

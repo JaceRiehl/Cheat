@@ -15,15 +15,6 @@
 
 class CardTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-
-	}
-	virtual void tearDown()
-	{
-
-	}
 };
 
 TEST(CardTest, defaultValues)
