@@ -19,13 +19,6 @@ using namespace ::testing;
 
 class GoFishControllerTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-	}
-	virtual void tearDown()
-	{
-	}
 };
 
 TEST(GoFishControllerTest, defaultValues)

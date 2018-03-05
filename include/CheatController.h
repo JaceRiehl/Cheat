@@ -27,7 +27,7 @@ public:
 	*@param CheatView* v  The view object 
 	*@param Deck* d the deck object that will be used 
 	*/
-	CheatController(vector<Player*> play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
+	CheatController(const vector<Player*> &play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
 	/**
 	*Class Destructor
 	*/ 
@@ -65,7 +65,7 @@ private:
 	vector<Player*> _players;
 	Deck* _dealersDeck;
 	vector<Card> _pile; 
-	int _numPlayers;
+	int _numPlayers = 0;
 	vector<string> _discard = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 	int _discardIndex = 0;
 };

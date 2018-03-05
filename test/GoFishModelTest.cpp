@@ -14,15 +14,6 @@
 
 class GoFishModelTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-
-	}
-	virtual void tearDown()
-	{
-
-	}
 };
 
 TEST(GoFishModelTest, defaultValues)

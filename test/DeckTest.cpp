@@ -15,15 +15,6 @@
 
 class DeckTest : public::testing::Test
 {
-protected:
-	virtual void setUp()
-	{
-
-	}
-	virtual void tearDown()
-	{
-
-	}
 };
 
 TEST(DeckTest, sizeCheck)

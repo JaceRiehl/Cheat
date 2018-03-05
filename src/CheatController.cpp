@@ -66,11 +66,10 @@ int CheatController::turn(int playerIndex)
 	_pile.push_back(_players[playerIndex]->takeCard(discard-1));
 	while(_view->continueDiscarding())
 	{
+		_view->displayPlayersHand(_players[playerIndex]->getHand());
 		discard = _view->chooseCard(_players[playerIndex]->getHandSize());
-		if(_pile.empty())
-			_pile = {_players[playerIndex]->takeCard(discard-1)};
-		else
-			_pile.push_back(_players[playerIndex]->takeCard(discard));
+
+		_pile.push_back(_players[playerIndex]->takeCard(discard));
 
 		++numCardsDiscarded;
 		if(numCardsDiscarded == 4)
@@ -92,6 +91,7 @@ int CheatController::turn(int playerIndex)
 				_pile.clear(); 
 		}
 	}
+	_view->endTurn();
 	++_discardIndex;
 	_discardIndex = _discardIndex % _discard.size();
 }
