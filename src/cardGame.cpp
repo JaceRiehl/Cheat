@@ -31,14 +31,20 @@ int main()
     	Player* p3 = new Player(3);
     	Player* p4 = new Player(4);
     	Player* p5 = new Player(5);
-    	vector<Player*> players = {p1,p2,p3,p4,p5};
+    	Player* p6 = new Player(6);
+    	Player* p7 = new Player(7);
+    	Player* p8 = new Player(8);
+    	Player* p9 = new Player(9);
+    	Player* p10 = new Player(10);
+
+    	vector<Player*> players = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10};
     	Deck* deck = new Deck();
     	CheatView* view = new CheatView();
 		CheatController c(players,view,deck);
 		c.startGame();
 		c.initalDeal();
 		c.runGame();
-		delete p1,p2,p3,p4,p5;
+		delete p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
 	}
 	else if(input == 'G')
 	{

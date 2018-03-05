@@ -39,10 +39,6 @@ void CheatController::initalDeal()
 
 void CheatController::runGame()
 {
-	//play a turn
-	//ask if anyone wants to cheat 
-	//check if anyone has any cards left 
-	//loop 
 	int index = -1;
 	while(1)
 	{
@@ -53,13 +49,8 @@ void CheatController::runGame()
         if(_players[index]->getHandSize() == 0)
         {
         	_view->endingMessage(++index);
-            //see if bullshit was true 
-            //if(it is true)
-            //continue 
-            //else if(its false)
-            //player is winner 
+        	break;
         }
-
 	}
 }
 
@@ -75,15 +66,20 @@ int CheatController::turn(int playerIndex)
 	_view->displayCard(_discard[_discardIndex]);
 	
 	int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
-	_players[playerIndex]->takeCard(discard);
+	_pile.push_back(_players[playerIndex]->takeCard(discard-1));
 	while(_view->continueDiscarding())
 	{
-		int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
-		_players[playerIndex]->takeCard(discard);
+		discard = _view->chooseCard(_players[playerIndex]->getHandSize());
+		if(_pile.empty())
+			_pile = {_players[playerIndex]->takeCard(discard-1)};
+		else
+			_pile.push_back(_players[playerIndex]->takeCard(discard));
+
 		++numCardsDiscarded;
-		if(numCardsDiscarded == 3)
+		if(numCardsDiscarded == 4)
 			break;
 	}
+	_view->displayPlayersHand(_pile);
 	int playerCalledCheatIndex = _view->callCheat(_numPlayers, playerIndex);
 	if(playerCalledCheatIndex != -1)
 	{
@@ -93,10 +89,11 @@ int CheatController::turn(int playerIndex)
 		if(!_pile.empty())
 		{
 			for(vector<Card>::iterator it = _pile.begin(); it != _pile.end(); ++it)
-				{
-					_players[playerGettingCards]->receiveCard(*it);
-				}
-			_pile.clear(); 
+			{
+				_players[playerGettingCards]->receiveCard(*it);
+			}
+			if(!_pile.empty())
+				_pile.clear(); 
 		}
 	}
 	++_discardIndex;
