@@ -46,51 +46,51 @@ public:
 /// Destructor
 //
 /// destructs the player object
-	~Player() {};
+	virtual ~Player() {};
 
 /// getHand Function
 //
 /// \return vector<Card> representing the player's hand
 /// returns the player's hand
-    vector<Card> getHand();
+    virtual vector<Card> getHand();
 
 /// getHandString Function
 //
 /// \return string representing the player's hand
 /// returns the player's hand in string form
-	string getHandString();
+	virtual string getHandString();
 
 
 /// getPlayerNum Function
 //
 /// \return int representing the player's number
 /// returns an integer representing the player's number
-	int getPlayerNum() const;
+	virtual int getPlayerNum() const;
 
 /// getScore Function
 //
 /// \return int representing the player's score
 /// returns an integer representing the player's score
-    int getScore() const;
+    virtual int getScore() const;
 
 /// getHandSize Function
 //
 /// \return int representing the player's hand size
 /// returns an integer representing the player's hand size
-    int getHandSize() const;
+    virtual int getHandSize() const;
 
 /// receiveCard Function
 //
 /// \param[in] newCard the Card to be received by the player
 /// adds a card to the player's hand
-    void receiveCard(const Card& newCard);
+    virtual void receiveCard(const Card& newCard);
 
 /// countRank Function
 //
 /// \param[in] value the Rank to be counted in player's hand
 /// \return int the number of cards with the given rank in the player's hand
 /// returns an integer representing how many cards of the given rank the player has
-    int countRank(const Rank& value);
+    virtual int countRank(const Rank& value);
 
 /// giveCards Function
 //
@@ -98,19 +98,19 @@ public:
 /// \param[in] otherPlayer the Player to whom the cards will be given
 /// \return int representing how many cards of the given rank have been given
 /// finds cards in the hand of the given rank and gives them to the requesting player, also counting every card that is given
-    int giveCards(const Rank& value, Player& otherPlayer);
+    virtual int giveCards(const Rank& value, Player& otherPlayer);
 
 /// takeCard Function
 //
 /// \param[in] indexOfHand the index of card to remove
 /// \return Card the Card to remove
 /// Takes the card out of the Players hand from the given index
-    Card takeCard(int indexOfHand);
+    virtual Card takeCard(int indexOfHand);
 
 /// receivePoint Function
 //
 /// function to increase the player's score by one
-    void receivePoint();
+    virtual void receivePoint();
 
 /// sortHand Function
 //

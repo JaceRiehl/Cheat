@@ -20,7 +20,6 @@ void CheatController::startGame()
 	_dealersDeck->shuffle();
     _view->welcomeMessage();
     _numPlayers = _view->chooseNumPlayers(10);
-    cout << _numPlayers << endl;
 }
 
 void CheatController::initalDeal()
@@ -30,6 +29,7 @@ void CheatController::initalDeal()
 	{
 		for(int cardsDealt=0; cardsDealt<cardsPerPlayer; cardsDealt++)
 		{
+			cout << "Hi : " << cardsDealt << endl;
 			_players[player]->receiveCard(_dealersDeck->drawCard());
 		}
 	}

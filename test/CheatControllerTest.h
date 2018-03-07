@@ -6,10 +6,10 @@
 #include "Deck.h"
 #include "MockCheatView.cpp"
 #include "MockPlayer.cpp"
+#include "Card.h"
 #include "gmock/gmock.h"
 #include "gtest/gtest.h"
 #include <vector>
-using std::vector;
 using namespace std; 
 using namespace ::testing; 
 
@@ -32,9 +32,9 @@ public:
 		p10 = new MockPlayer(10);
 		players = {p1,p2,p3,p4,p5,p6,p7,p8,p9,p10};
 		controller = new CheatController(players,view,deck);
-		// viewMock = dynamic_cast<MockCheatView*>(view);
-		// p1Mock = dynamic_cast<MockPlayer*>(p1);
-		// p2Mock = dynamic_cast<MockPlayer*>(p2);
+		viewMock = dynamic_cast<MockCheatView*>(view);
+		p1Mock = dynamic_cast<MockPlayer*>(p1);
+		p2Mock = dynamic_cast<MockPlayer*>(p2);
 		// p3Mock = dynamic_cast<MockPlayer*>(p3);
 		// p4Mock = dynamic_cast<MockPlayer*>(p4);
 		// p5Mock = dynamic_cast<MockPlayer*>(p5);
@@ -43,15 +43,18 @@ public:
 		// p8Mock = dynamic_cast<MockPlayer*>(p8);
 		// p9Mock = dynamic_cast<MockPlayer*>(p9);
 		// p10Mock = dynamic_cast<MockPlayer*>(p10);
-		//deckMock = dynamic_cast<MockDeck*>(deck);
+		deckMock = dynamic_cast<MockDeck*>(deck);
 	}
 
 	virtual void TearDown()
 	{
+		delete controller; 
 		delete p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
-		delete p1Mock,p2Mock,p3Mock,p4Mock,p5Mock,p6Mock,p7Mock,p8Mock,p9Mock,p10Mock;
-		delete view, viewMock; 
-		delete deck,deckMock;
+		delete p2Mock;
+		//delete p1Mock,p2Mock,p3Mock,p4Mock,p5Mock,p6Mock,p7Mock,p8Mock,p9Mock,p10Mock;
+		//delete view, viewMock; 
+		//delete deck,deckMock;
+
 	}
 
 protected:

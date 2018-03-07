@@ -27,7 +27,7 @@ public:
 	*@param CheatView* v  The view object 
 	*@param Deck* d the deck object that will be used 
 	*/
-	CheatController(const vector<Player*> &play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
+	CheatController(vector<Player*> &play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
 	/**
 	*Class Destructor
 	*/ 

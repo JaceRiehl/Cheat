@@ -31,7 +31,7 @@ TEST(GoFishControllerTest, defaultValues)
 
 	std::vector<Player> p;
 	EXPECT_CALL(*mv, printWelcome(_)).WillRepeatedly(Return());
-	EXPECT_CALL(*mm, getStatus())
+    EXPECT_CALL(*mm, getStatus())
 		.Times(AtLeast(1))
 		.WillRepeatedly(Return(done));
 	EXPECT_CALL(*mv, printGameOver());

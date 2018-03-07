@@ -17,8 +17,8 @@ using namespace ::testing;
 class MockDeck : public Deck
 {
 public:
-	//explicit MockDeck(){}
-	//virtual ~MockDeck(){}
+	explicit MockDeck(){}
+	virtual ~MockDeck(){}
 
 	MOCK_METHOD0(getDeck, std::vector<Card>());
 	MOCK_METHOD0(getSize, int());
