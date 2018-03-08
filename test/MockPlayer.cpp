@@ -30,4 +30,5 @@ public:
 	MOCK_METHOD2(giveCards, int(const Rank& value, Player& otherPlayer));
 	MOCK_METHOD0(receivePoint, void());
 	MOCK_METHOD0(sortHand, void());
+	MOCK_METHOD1(takeCard, Card(int indexOfHand));
 };

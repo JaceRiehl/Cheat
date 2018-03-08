@@ -20,30 +20,16 @@ public:
 	{
 		deck = new MockDeck();
 		view = new MockCheatView();
-		p1Mock = new MockPlayer(1);
-		p2Mock = new MockPlayer(2);
-		//p3 = new MockPlayer(3);
-		//p4 = new MockPlayer(4);
-		//p5 = new MockPlayer(5);
-		//p6 = new MockPlayer(6);
-		//p7 = new MockPlayer(7);
-		//p8 = new MockPlayer(8);
-		//p9 = new MockPlayer(9);
-		//p10 = new MockPlayer(10);
-		players.push_back(p1Mock);
-		players.push_back(p2Mock);
+		p1 = new MockPlayer(1);
+		p2 = new MockPlayer(2);
+
+		players.push_back(p1);
+		players.push_back(p2);
 		controller = new CheatController(players,view,deck);
 		viewMock = dynamic_cast<MockCheatView*>(view);
-		//p1Mock = dynamic_cast<MockPlayer*>(p1);
-		//p2Mock = dynamic_cast<MockPlayer*>(p2);
-		// p3Mock = dynamic_cast<MockPlayer*>(p3);
-		// p4Mock = dynamic_cast<MockPlayer*>(p4);
-		// p5Mock = dynamic_cast<MockPlayer*>(p5);
-		// p6Mock = dynamic_cast<MockPlayer*>(p6);
-		// p7Mock = dynamic_cast<MockPlayer*>(p7);
-		// p8Mock = dynamic_cast<MockPlayer*>(p8);
-		// p9Mock = dynamic_cast<MockPlayer*>(p9);
-		// p10Mock = dynamic_cast<MockPlayer*>(p10);
+		p1Mock = dynamic_cast<MockPlayer*>(p1);
+		p2Mock = dynamic_cast<MockPlayer*>(p2);
+
 		deckMock = dynamic_cast<MockDeck*>(deck);
 	}
 

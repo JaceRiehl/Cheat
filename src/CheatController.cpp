@@ -46,7 +46,9 @@ void CheatController::runGame()
         index = index % _numPlayers;
         _view->clearTerminal();
         int currentPlayer = turn(index);
-        if(_players[index]->getHandSize() == 0)
+        cout << "SIZE: " << _players.size();
+        int handSize = _players[index]->getHandSize();
+        if(handSize == 0)
         {
         	_view->endingMessage(++index);
         	break;
