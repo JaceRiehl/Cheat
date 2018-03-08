@@ -21,7 +21,7 @@ class GoFishControllerTest : public::testing::Test
 {
 };
 
-TEST(GoFishControllerTest, defaultValues)
+TEST(GoFishControllerTest, DISABLED_defaultValues)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -44,7 +44,7 @@ TEST(GoFishControllerTest, defaultValues)
 
 }
 
-TEST(GoFishControllerTest, initPlayersQuit)
+TEST(GoFishControllerTest, DISABLED_initPlayersQuit)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -75,7 +75,7 @@ TEST(GoFishControllerTest, initPlayersQuit)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, initPlayersTwoOrThree)
+TEST(GoFishControllerTest, DISABLED_initPlayersTwoOrThree)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -97,7 +97,7 @@ TEST(GoFishControllerTest, initPlayersTwoOrThree)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, initPlayersFourOrFive)
+TEST(GoFishControllerTest, DISABLED_initPlayersFourOrFive)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -119,7 +119,7 @@ TEST(GoFishControllerTest, initPlayersFourOrFive)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, takeTurnHasCard)
+TEST(GoFishControllerTest, DISABLED_takeTurnHasCard)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -178,7 +178,7 @@ TEST(GoFishControllerTest, takeTurnHasCard)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, takeTurnGoFish)
+TEST(GoFishControllerTest, DISABLED_takeTurnGoFish)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -208,7 +208,7 @@ TEST(GoFishControllerTest, takeTurnGoFish)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, updateStart)
+TEST(GoFishControllerTest, DISABLED_updateStart)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -271,7 +271,7 @@ TEST(GoFishControllerTest, updatePlaying)
 }
 */
 
-TEST(GoFishControllerTest, updateDone)
+TEST(GoFishControllerTest, DISABLED_updateDone)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -301,7 +301,7 @@ TEST(GoFishControllerTest, updateDone)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, detectWin)
+TEST(GoFishControllerTest, DISABLED_detectWin)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -335,7 +335,7 @@ TEST(GoFishControllerTest, detectWin)
 }
 
 
-TEST(GoFishControllerTest, playKill)
+TEST(GoFishControllerTest, DISABLED_playKill)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();

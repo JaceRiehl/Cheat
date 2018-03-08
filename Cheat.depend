@@ -1,0 +1,199 @@
+# depslib dependency file v1.0
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/src/Card.cpp
+	"Card.h"
+
+1520446933 /home/riehlj4/asn2/JaceRiehl/include/Card.h
+	<string>
+	<stdexcept>
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/src/cardGame.cpp
+	<stdio.h>
+	<ctype.h>
+	"GoFishController.h"
+	"CheatController.h"
+	<iostream>
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/include/GoFishController.h
+	"GoFishModel.h"
+	"GoFishView.h"
+	<algorithm>
+	<limits>
+	<iostream>
+	<string>
+	<cctype>
+	<stdexcept>
+	<array>
+	<vector>
+	<cassert>
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/include/GoFishModel.h
+	"Card.h"
+	"Deck.h"
+	"Player.h"
+	<vector>
+	<cassert>
+
+1520469185 /home/riehlj4/asn2/JaceRiehl/include/Deck.h
+	"Card.h"
+	<vector>
+	<ctime>
+	<algorithm>
+	<map>
+
+1520446933 /home/riehlj4/asn2/JaceRiehl/include/Player.h
+	<sstream>
+	<iostream>
+	<vector>
+	<string>
+	<cstdlib>
+	<algorithm>
+	"Card.h"
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/include/GoFishView.h
+	<algorithm>
+	<iostream>
+	<string>
+	<stdexcept>
+	<limits>
+	<cctype>
+
+1520464640 /home/riehlj4/asn2/JaceRiehl/include/CheatController.h
+	"CheatView.h"
+	"Deck.h"
+	"Player.h"
+	"Card.h"
+	<algorithm>
+	<limits>
+	<iostream>
+	<string>
+	<cctype>
+	<stdexcept>
+	<array>
+	<vector>
+	<cassert>
+	<math.h>
+
+1520290490 /home/riehlj4/asn2/JaceRiehl/include/CheatView.h
+	<iostream>
+	"Deck.h"
+	"Player.h"
+	"Card.h"
+	<stdio.h>
+	<ctype.h>
+
+1520471276 source:/home/riehlj4/asn2/JaceRiehl/src/CheatController.cpp
+	"CheatController.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/src/CheatView.cpp
+	"CheatView.h"
+
+1520469185 source:/home/riehlj4/asn2/JaceRiehl/src/Deck.cpp
+	"Deck.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/src/GoFishController.cpp
+	"GoFishController.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/src/GoFishModel.cpp
+	"GoFishModel.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/src/GoFishView.cpp
+	"GoFishView.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/src/Player.cpp
+	"Player.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/test/CardTest.cpp
+	<limits.h>
+	<gtest/gtest.h>
+	"Card.h"
+
+1520471136 source:/home/riehlj4/asn2/JaceRiehl/test/CheatControllerTest.cpp
+	"CheatControllerTest.h"
+
+1520467861 /home/riehlj4/asn2/JaceRiehl/test/CheatControllerTest.h
+	"CheatController.h"
+	"MockCard.cpp"
+	"MockDeck.cpp"
+	"Deck.h"
+	"MockCheatView.cpp"
+	"MockPlayer.cpp"
+	"Card.h"
+	"gmock/gmock.h"
+	"gtest/gtest.h"
+	<vector>
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/test/MockCard.cpp
+	<gmock/gmock.h>
+	"Card.h"
+
+1520469193 /home/riehlj4/asn2/JaceRiehl/test/MockDeck.cpp
+	<gmock/gmock.h>
+	"Deck.h"
+
+1520461474 /home/riehlj4/asn2/JaceRiehl/test/MockCheatView.cpp
+	<gmock/gmock.h>
+	"CheatView.h"
+	"Card.h"
+
+1520468964 /home/riehlj4/asn2/JaceRiehl/test/MockPlayer.cpp
+	<gmock/gmock.h>
+	"Player.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/test/DeckTest.cpp
+	<limits.h>
+	<gtest/gtest.h>
+	"Deck.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/test/GoFishModelTest.cpp
+	<gtest/gtest.h>
+	"GoFishModel.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/test/MockCard.cpp
+	<gmock/gmock.h>
+	"Card.h"
+
+1520461474 source:/home/riehlj4/asn2/JaceRiehl/test/MockCheatView.cpp
+	<gmock/gmock.h>
+	"CheatView.h"
+	"Card.h"
+
+1520469193 source:/home/riehlj4/asn2/JaceRiehl/test/MockDeck.cpp
+	<gmock/gmock.h>
+	"Deck.h"
+
+1520462965 source:/home/riehlj4/asn2/JaceRiehl/test/GoFishControllerTest.cpp
+	<gtest/gtest.h>
+	<gmock/gmock.h>
+	<MockGoFishModel.cpp>
+	<MockGoFishView.cpp>
+	"GoFishController.h"
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/test/MockGoFishModel.cpp
+	<gmock/gmock.h>
+	"GoFishModel.h"
+
+1519340745 /home/riehlj4/asn2/JaceRiehl/test/MockGoFishView.cpp
+	<gmock/gmock.h>
+	"GoFishView.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/test/MockGoFishModel.cpp
+	<gmock/gmock.h>
+	"GoFishModel.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/test/MockGoFishView.cpp
+	<gmock/gmock.h>
+	"GoFishView.h"
+
+1520468964 source:/home/riehlj4/asn2/JaceRiehl/test/MockPlayer.cpp
+	<gmock/gmock.h>
+	"Player.h"
+
+1520290490 source:/home/riehlj4/asn2/JaceRiehl/test/PlayerTest.cpp
+	<gtest/gtest.h>
+	"Player.h"
+
+1519340745 source:/home/riehlj4/asn2/JaceRiehl/test/TestAll.cpp
+	<limits.h>
+	<gtest/gtest.h>
+	<gmock/gmock.h>
+

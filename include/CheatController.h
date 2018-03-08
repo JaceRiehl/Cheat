@@ -13,35 +13,35 @@
 #include <array>
 #include <vector>
 #include <cassert>
-#include <math.h> 
+#include <math.h>
 using std::string;
 /**
 *Implements the game Cheat.
-*/ 
-class CheatController 
+*/
+class CheatController
 {
-public: 
+public:
 	/**
-	*Controller that sets up dependecy injection 
+	*Controller that sets up dependecy injection
 	*@param vector<Player*> play The players that will be used in the game
-	*@param CheatView* v  The view object 
-	*@param Deck* d the deck object that will be used 
+	*@param CheatView* v  The view object
+	*@param Deck* d the deck object that will be used
 	*/
 	CheatController(vector<Player*> &play, CheatView* v, Deck* d): _view(v), _players(play), _dealersDeck(d) {}
 	/**
 	*Class Destructor
-	*/ 
+	*/
 	virtual ~CheatController();
-	
+
 	/**
 	*Starts the game, creates players, and sets up the game.
 	*/
 	virtual void startGame();
 	/**
-	*Deals Cards to all Players. It deals 5 cards per player if there are 4-5 players and 7 if there are 2-3 players. 
+	*Deals Cards to all Players. It deals 5 cards per player if there are 4-5 players and 7 if there are 2-3 players.
 	*/
 	virtual void initalDeal();
-	/**
+	/**typeid(a).name()
 	*runGame does the loop that calls the appropriate functions to run the game until the game is won.
 	*/
 	virtual void runGame();
@@ -60,11 +60,11 @@ public:
 
 
 
-private: 
+private:
 	CheatView* _view;
 	vector<Player*> _players;
 	Deck* _dealersDeck;
-	vector<Card> _pile; 
+	vector<Card> _pile;
 	int _numPlayers = 0;
 	vector<string> _discard = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 	int _discardIndex = 0;

@@ -44,7 +44,7 @@ vector<Card> Deck::getDeck()
 //
 // \return int representing the size of the deck
 // returns the size of the deck
-int Deck::getSize() const
+int Deck::getSize()
 {
 	return _deckVector.size();
 }

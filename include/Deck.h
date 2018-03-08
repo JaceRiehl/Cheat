@@ -55,7 +55,7 @@ public:
 //
 /// \return int representing the size of the deck
 /// returns the size of the deck
-	virtual int getSize() const;
+	virtual int getSize();
 
 /// drawCard function
 //

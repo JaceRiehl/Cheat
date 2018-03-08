@@ -21,6 +21,7 @@ public:
 	MOCK_METHOD1(chooseCard, int(int MaxCard));
 	MOCK_METHOD1(chooseNumPlayers, int(int maxPlayers));
 	MOCK_METHOD1(displayPlayersHand, void(vector<Card> playersHand));
+	MOCK_METHOD0(clearTerminal, void());
 	MOCK_METHOD1(displayTurn, void(Player p1));
 	MOCK_METHOD0(endTurn, void());
 	MOCK_METHOD1(endingMessage, void(int winner));

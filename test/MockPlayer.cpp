@@ -25,8 +25,9 @@ public:
 	MOCK_METHOD0(getPlayerNum, int());
 	MOCK_METHOD0(getScore, int());
 	MOCK_METHOD0(getHandSize, int());
-	MOCK_METHOD1(receiveCard, void(Card newCard));
+	MOCK_METHOD1(receiveCard, void(const Card& newCard));
 	MOCK_METHOD1(countRank, int(const Rank& value));
 	MOCK_METHOD2(giveCards, int(const Rank& value, Player& otherPlayer));
 	MOCK_METHOD0(receivePoint, void());
+	MOCK_METHOD0(sortHand, void());
 };
