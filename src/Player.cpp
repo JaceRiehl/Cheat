@@ -11,9 +11,9 @@
 
 #include "Player.h"
 
-// sortBy function 
-// \param[in] Card1 One of the cards to be compared 
-// \param[in] Card2 One of the cards to be compared 
+// sortBy function
+// \param[in] Card1 One of the cards to be compared
+// \param[in] Card2 One of the cards to be compared
 //
 //Helper function for sorting
 bool sortBy(Card, Card);
@@ -71,7 +71,7 @@ int Player::getScore() const
 //
 // \return int representing the player's hand size
 // returns an integer representing the player's hand size
-int Player::getHandSize() const
+int Player::getHandSize()
 {
     return _hand.size();
 }
@@ -149,9 +149,9 @@ void Player::receivePoint()
     ++_score;
 }
 
-// sortBy function 
-// \param[in] Card1 One of the cards to be compared 
-// \param[in] Card2 One of the cards to be compared 
+// sortBy function
+// \param[in] Card1 One of the cards to be compared
+// \param[in] Card2 One of the cards to be compared
 //
 //Helper function for sorting
 bool sortBy(Card c1, Card c2)

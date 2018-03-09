@@ -40,7 +40,7 @@
 	<algorithm>
 	<map>
 
-1520446933 /home/riehlj4/asn2/JaceRiehl/include/Player.h
+1520549888 /home/riehlj4/asn2/JaceRiehl/include/Player.h
 	<sstream>
 	<iostream>
 	<vector>
@@ -99,7 +99,7 @@
 1519340745 source:/home/riehlj4/asn2/JaceRiehl/src/GoFishView.cpp
 	"GoFishView.h"
 
-1520290490 source:/home/riehlj4/asn2/JaceRiehl/src/Player.cpp
+1520549893 source:/home/riehlj4/asn2/JaceRiehl/src/Player.cpp
 	"Player.h"
 
 1520290490 source:/home/riehlj4/asn2/JaceRiehl/test/CardTest.cpp
@@ -107,7 +107,7 @@
 	<gtest/gtest.h>
 	"Card.h"
 
-1520547880 source:/home/riehlj4/asn2/JaceRiehl/test/CheatControllerTest.cpp
+1520553951 source:/home/riehlj4/asn2/JaceRiehl/test/CheatControllerTest.cpp
 	"CheatControllerTest.h"
 
 1520537569 /home/riehlj4/asn2/JaceRiehl/test/CheatControllerTest.h

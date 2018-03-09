@@ -77,7 +77,7 @@ public:
 //
 /// \return int representing the player's hand size
 /// returns an integer representing the player's hand size
-    virtual int getHandSize() const;
+    virtual int getHandSize();
 
 /// receiveCard Function
 //
