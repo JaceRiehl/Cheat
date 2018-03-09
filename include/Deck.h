@@ -43,30 +43,30 @@ public:
 /// Destructor
 //
 /// destructs the deck object
-	~Deck() {};
+	virtual ~Deck() {};
 
 /// getDeck function
 //
 /// \return vector<Card> of cards representing the deck
 /// returns the private vector member of the deck
-	vector<Card> getDeck();
+	virtual vector<Card> getDeck();
 
 /// getSize function
 //
 /// \return int representing the size of the deck
 /// returns the size of the deck
-	int getSize() const;
+	virtual int getSize();
 
 /// drawCard function
 //
 /// \return Card being drawn
 /// returns the card being removed from the deck
-	Card drawCard();
+	virtual Card drawCard();
 
 /// shuffle function
 //
 /// void function to shuffle the cards in the deck
-	void shuffle();
+	virtual void shuffle();
 };
 
 #endif

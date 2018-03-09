@@ -45,7 +45,7 @@ TEST(PlayerTest, scoreCheck)
 	Player player(1, 1);
 	EXPECT_EQ(1, player.getPlayerNum());
 	EXPECT_EQ(1, player.getScore());
-	
+
 	player.receivePoint();
 	EXPECT_EQ(2, player.getScore());
 	for (int i = 1; i <= 10; ++i)
@@ -307,3 +307,26 @@ TEST(PlayerTest, FullHandExchangeVectorsCheck)
 	EXPECT_EQ(two, p[1].getHand()[7].getRank());
 	EXPECT_EQ(two, p[1].getHand()[8].getRank());
 }
+
+TEST(PlayerTest, takeCard)
+{
+    Player p1(1);
+    Card c1(ace);
+    Card c2(two);
+    p1.receiveCard(c1);
+    p1.receiveCard(c2);
+    ASSERT_TRUE(p1.getHandSize() == 2);
+    ASSERT_TRUE(p1.takeCard(1).getRankString() == c2.getRankString());
+}
+
+TEST(PlayerTest, sortHand)
+{
+    Player p1(1);
+    Card c1(ace);
+    Card c2(two);
+    p1.receiveCard(c2);
+    p1.receiveCard(c1);
+    p1.sortHand();
+    ASSERT_TRUE(p1.takeCard(0) == c1);
+}
+

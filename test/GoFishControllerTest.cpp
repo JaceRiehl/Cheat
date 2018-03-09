@@ -31,13 +31,13 @@ TEST(GoFishControllerTest, defaultValues)
 
 	std::vector<Player> p;
 	EXPECT_CALL(*mv, printWelcome(_)).WillRepeatedly(Return());
-	EXPECT_CALL(*mm, getStatus())
+    EXPECT_CALL(*mm, getStatus())
 		.Times(AtLeast(1))
 		.WillRepeatedly(Return(done));
 	EXPECT_CALL(*mv, printGameOver());
 	EXPECT_CALL(*mm, getPlayers())
 		.WillRepeatedly(Return(p));
-	
+
 	gc.update();
 	delete mm;
 	delete mv;
@@ -69,7 +69,7 @@ TEST(GoFishControllerTest, initPlayersQuit)
 		.WillRepeatedly(Return(p));
 
 	gc.initPlayers();
-	
+
 
 	delete mm;
 	delete mv;
@@ -294,7 +294,7 @@ TEST(GoFishControllerTest, updateDone)
 
 	EXPECT_CALL(*mv, printFinalScore(_, _))
 		.Times(AtLeast(1));
-	
+
 	gc.update();
 
 	delete mm;
@@ -340,7 +340,7 @@ TEST(GoFishControllerTest, playKill)
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
 	GoFishController gc(mm, mv);
-	
+
 	Player p1(1, 0);
 	Player p2(2, 0);
 	Player p3(3, 0);
@@ -356,9 +356,12 @@ TEST(GoFishControllerTest, playKill)
 		.WillRepeatedly(Return(done));
 
 	EXPECT_CALL(*mv, printGameOver());
+	EXPECT_CALL(*mv, printFinalScore(_,_))
+	.Times(3)
+	.WillRepeatedly(Return());
 
 	gc.play();
-	
+
 	delete mm;
 	delete mv;
 }

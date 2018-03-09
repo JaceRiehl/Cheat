@@ -67,47 +67,47 @@ public:
 	/// Destructor
 	//
 	/// destructs the card object
-	~Card() {};
+	virtual ~Card() {};
 
 	/// getRank function
 	//
 	/// \return Rank the rank of the card within its suit
 	/// returns the rank of the card within its suit
-	Rank getRank() const;
+	virtual Rank getRank() const;
 
 	/// getSuit function
 	//
 	/// \return Suit the suit of the card
 	/// returns the suit of the card
-	Suit getSuit() const;
+	virtual Suit getSuit() const;
 
 	/// getRankString function
 	//
 	/// \return string a string representing the rank of the card
 	/// returns a string representing the rank of the card
-	string getRankString() const;
+	virtual string getRankString() const;
 
 	/// getSuitString function
 	//
 	/// \return string a string representing the suit of the card
 	/// returns a string representing the suit of the card
-	string getSuitString() const;
+	virtual string getSuitString() const;
 
 	/// getCardString function
 	//
 	/// \return string a string representing the card's rank and suit
 	/// returns a string representing the card as a whole
-	string getCardString() const;
+	virtual string getCardString() const;
 
 	/// == operator
 	//
 	/// \return bool a boolean representing whether the cards are equal
-	bool operator==(const Card& rhs);
+	virtual bool operator==(const Card& rhs);
 
 	/// != operator
 	//
 	/// \return bool a boolean representing whether the cards are unequal
-	bool operator != (const Card& rhs);
+	virtual bool operator != (const Card& rhs);
 
 
 };

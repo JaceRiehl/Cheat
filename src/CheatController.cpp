@@ -5,7 +5,7 @@ CheatController::~CheatController()
 	if(_dealersDeck != nullptr)
 	{
 		delete _dealersDeck;
-		_dealersDeck = nullptr; 
+		_dealersDeck = nullptr;
 	}
 	if(_view != nullptr)
 	{
@@ -14,13 +14,12 @@ CheatController::~CheatController()
 	}
 
 }
-	
+
 void CheatController::startGame()
 {
 	_dealersDeck->shuffle();
     _view->welcomeMessage();
     _numPlayers = _view->chooseNumPlayers(10);
-    cout << _numPlayers << endl;
 }
 
 void CheatController::initalDeal()
@@ -34,19 +33,22 @@ void CheatController::initalDeal()
 		}
 	}
 	if(_dealersDeck->getSize() != 0)
-		_pile = _dealersDeck->getDeck(); 
+		_pile = _dealersDeck->getDeck();
 }
 
 void CheatController::runGame()
 {
 	int index = -1;
+	int currentPlayer = -1;
+	int handSize = -1;
 	while(1)
 	{
 		++index;
         index = index % _numPlayers;
         _view->clearTerminal();
-        int currentPlayer = turn(index);
-        if(_players[index]->getHandSize() == 0)
+        currentPlayer = turn(index);
+        int handSize = _players[index]->getHandSize();
+        if(handSize == 0)
         {
         	_view->endingMessage(++index);
         	break;
@@ -61,7 +63,7 @@ int CheatController::turn(int playerIndex)
 	_players[playerIndex]->sortHand();
 	_view->displayPlayersHand(_players[playerIndex]->getHand());
 	_view->displayCard(_discard[_discardIndex]);
-	
+
 	int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
 	_pile.push_back(_players[playerIndex]->takeCard(discard-1));
 	while(_view->continueDiscarding())
@@ -88,7 +90,7 @@ int CheatController::turn(int playerIndex)
 				_players[playerGettingCards]->receiveCard(*it);
 			}
 			if(!_pile.empty())
-				_pile.clear(); 
+				_pile.clear();
 		}
 	}
 	_view->endTurn();
@@ -102,7 +104,7 @@ bool CheatController::didCheat(int numCardsDiscarded)
 	{
 		if(_pile[i].getRankString() != _discard[_discardIndex])
 		{
-			return true; 
+			return true;
 		}
 	}
 	return false;
