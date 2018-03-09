@@ -13,15 +13,15 @@
 #include <ctype.h>
 #include "GoFishController.h"
 #include "CheatController.h"
-#include <iostream> 
+#include <iostream>
 
 int main()
 {
-	char input;
+	char input = 'n';
 	while(input != 'C' && input != 'G')
 	{
 		cout << "Do you want to play Cheat or GoFish? (c/g): ";
-		cin >> input; 
+		cin >> input;
 		input = toupper(input);
 	}
 	if(input == 'C')
@@ -44,13 +44,22 @@ int main()
 		c.startGame();
 		c.initalDeal();
 		c.runGame();
-		delete p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
+		delete p1;
+		delete p2;
+		delete p3;
+		delete p4;
+		delete p5;
+		delete p6;
+		delete p7;
+		delete p8;
+		delete p9;
+		delete p10;
 	}
 	else if(input == 'G')
 	{
 	GoFishController g(new GoFishModel(), new GoFishView());
 	g.play();
-	}	
+	}
 
 	return 0;
 }

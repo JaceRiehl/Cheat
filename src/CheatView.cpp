@@ -30,17 +30,17 @@ int CheatView::chooseNumPlayers(int maxPlayers)
     int players;
     char numPlayers = 0;
     int test = 0;
-    cout << "How many players do you want to add (2-" << maxPlayers << ")? ";
+    cout << "How many extra players do you want to add (1-" << maxPlayers << ")? ";
     while(cin >> numPlayers)
     {
         players = numPlayers - '0';
-        if(players >= 2 && players <= maxPlayers)
+        if(players >= 1 && players <= maxPlayers)
             break;
         cin.ignore(10000, '\n');
         cout << "Enter a valid input (2-" << maxPlayers << "): ";
     }
 
-    return players;
+    return players+1;
 
 }
 
@@ -93,9 +93,9 @@ int CheatView::callCheat(int numPlayers, int playerNum)
 				cin >> input;
 			}
 			else
-				break; 
+				break;
 		}
-		while(input != 'n' && input != 'y'); 
+		while(input != 'n' && input != 'y');
 		if(input == 'y')
 			return i;
 	}
@@ -117,8 +117,8 @@ bool CheatView::continueDiscarding()
 	}
 	while(input != 'n' && input != 'y');
 	if(input == 'y')
-		return true; 
+		return true;
 	else if (input == 'n')
-		return false;  
+		return false;
 }
 
