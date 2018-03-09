@@ -19,7 +19,7 @@ void CheatController::startGame()
 {
 	_dealersDeck->shuffle();
     _view->welcomeMessage();
-    _numPlayers = _view->chooseNumPlayers(10);
+    _numPlayers = _view->chooseNumPlayers(9);
 }
 
 void CheatController::initalDeal()
@@ -39,14 +39,13 @@ void CheatController::initalDeal()
 void CheatController::runGame()
 {
 	int index = -1;
-	int currentPlayer = -1;
 	int handSize = -1;
 	while(1)
 	{
 		++index;
         index = index % _numPlayers;
         _view->clearTerminal();
-        currentPlayer = turn(index);
+        int currentPlayer = turn(index);
         int handSize = _players[index]->getHandSize();
         if(handSize == 0)
         {
@@ -66,7 +65,7 @@ int CheatController::turn(int playerIndex)
 
 	int discard = _view->chooseCard(_players[playerIndex]->getHandSize());
 	_pile.push_back(_players[playerIndex]->takeCard(discard-1));
-	while(_view->continueDiscarding())
+	while(_view->continueDiscarding() && _players[playerIndex]->getHandSize() != 0)
 	{
 		_view->displayPlayersHand(_players[playerIndex]->getHand());
 		discard = _view->chooseCard(_players[playerIndex]->getHandSize());
@@ -76,6 +75,7 @@ int CheatController::turn(int playerIndex)
 		++numCardsDiscarded;
 		if(numCardsDiscarded == 4)
 			break;
+        _view->displayPlayersHand(_players[playerIndex]->getHand());
 	}
 	int playerCalledCheatIndex = _view->callCheat(_numPlayers, playerIndex);
 	if(playerCalledCheatIndex != -1)
