@@ -88,11 +88,11 @@ TEST_F(CheatControllerTest,testInitalDeal)
 	.WillRepeatedly(Return(c1));
 
 	 EXPECT_CALL(*p1Mock,receiveCard(_))
-	 .Times(5)
+	 .Times(10)
 	 .WillRepeatedly(Return());
 
 	EXPECT_CALL(*p2Mock,receiveCard(_))
-	.Times(14)
+	.Times(9)
 	.WillRepeatedly(Return());
 
 	vector<Card> cTemp = {Card(ace)};
@@ -180,7 +180,7 @@ TEST_F(CheatControllerTest,testInitalDeal)
 
  	EXPECT_CALL(*viewMock,callCheat(_,_))
  	.Times(2)
- 	.WillOnce(Return(-1))
+ 	.WillOnce(Return(0))
  	.WillOnce(Return(1));
 
 // 	EXPECT_CALL(*viewMock,callCheat(_,_))
