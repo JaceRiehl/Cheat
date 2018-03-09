@@ -75,7 +75,7 @@ void GoFishController::takeTurn(const int& playerIndex)
 	Rank targetCard;
 	int rankIndex;
 	int playerChoice;
-	
+
 	_view->printPlayerRequest(static_cast<int>(_model->getPlayers().size()), playerIndex+1, playerChoice, rankIndex);
 	targetCard = Rank(rankIndex);
 

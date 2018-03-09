@@ -62,7 +62,7 @@ TEST_F(CheatControllerTest,testInitalDeal)
 
 }
 
- TEST_F(CheatControllerTest,testEverythingElse)
+ TEST_F(CheatControllerTest,testGame)
  {
  	EXPECT_CALL(*deckMock,shuffle())
 	.Times(1)
@@ -119,11 +119,6 @@ TEST_F(CheatControllerTest,testInitalDeal)
  	.WillRepeatedly(Return(5));
 
 
-
-// 	EXPECT_CALL(*viewMock,chooseCard(_))
-// 	.Times(1)
-// 	.WillOnce(Return(1));
-
     EXPECT_CALL(*p1Mock,takeCard(_))
  	.Times(4)
  	.WillRepeatedly(Return(c1));
@@ -150,29 +145,10 @@ TEST_F(CheatControllerTest,testInitalDeal)
  	.Times(8)
  	.WillRepeatedly(Return(1));
 
-// 	EXPECT_CALL(*p1Mock,getHandSize())
-// 	.Times(3)
-// 	.WillRepeatedly(Return(5));
-
-
-
-//
-// 	EXPECT_CALL(*p1Mock,takeCard(_))
-// 	.Times(3)
-// 	.WillRepeatedly(Return(c1));
-
-//
-
-//EXPECT_CALL(*p2Mock,getHandSize())
-// 	.Times(5)
-// 	.WillRepeatedly(Return(0));
     EXPECT_CALL(*p2Mock,sortHand())
  	.Times(1)
  	.WillOnce(Return());
 
-// 	EXPECT_CALL(*p2Mock,getHand())
-// 	.Times(4)
-// 	.WillRepeatedly(Return(cTemp));
 
     EXPECT_CALL(*p2Mock,getHandSize())
  	.Times(5)
@@ -183,9 +159,6 @@ TEST_F(CheatControllerTest,testInitalDeal)
  	.WillOnce(Return(0))
  	.WillOnce(Return(1));
 
-// 	EXPECT_CALL(*viewMock,callCheat(_,_))
-// 	.Times(2)
-// 	.WillRepeatedly(Return(1));
 
  	EXPECT_CALL(*p2Mock,takeCard(_))
  	.Times(4)

@@ -21,7 +21,7 @@ class GoFishControllerTest : public::testing::Test
 {
 };
 
-TEST(GoFishControllerTest, DISABLED_defaultValues)
+TEST(GoFishControllerTest, defaultValues)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -37,14 +37,14 @@ TEST(GoFishControllerTest, DISABLED_defaultValues)
 	EXPECT_CALL(*mv, printGameOver());
 	EXPECT_CALL(*mm, getPlayers())
 		.WillRepeatedly(Return(p));
-	
+
 	gc.update();
 	delete mm;
 	delete mv;
 
 }
 
-TEST(GoFishControllerTest, DISABLED_initPlayersQuit)
+TEST(GoFishControllerTest, initPlayersQuit)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -69,13 +69,13 @@ TEST(GoFishControllerTest, DISABLED_initPlayersQuit)
 		.WillRepeatedly(Return(p));
 
 	gc.initPlayers();
-	
+
 
 	delete mm;
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_initPlayersTwoOrThree)
+TEST(GoFishControllerTest, initPlayersTwoOrThree)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -97,7 +97,7 @@ TEST(GoFishControllerTest, DISABLED_initPlayersTwoOrThree)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_initPlayersFourOrFive)
+TEST(GoFishControllerTest, initPlayersFourOrFive)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -119,7 +119,7 @@ TEST(GoFishControllerTest, DISABLED_initPlayersFourOrFive)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_takeTurnHasCard)
+TEST(GoFishControllerTest, takeTurnHasCard)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -178,7 +178,7 @@ TEST(GoFishControllerTest, DISABLED_takeTurnHasCard)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_takeTurnGoFish)
+TEST(GoFishControllerTest, takeTurnGoFish)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -208,7 +208,7 @@ TEST(GoFishControllerTest, DISABLED_takeTurnGoFish)
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_updateStart)
+TEST(GoFishControllerTest, updateStart)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -271,7 +271,7 @@ TEST(GoFishControllerTest, updatePlaying)
 }
 */
 
-TEST(GoFishControllerTest, DISABLED_updateDone)
+TEST(GoFishControllerTest, updateDone)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -294,14 +294,14 @@ TEST(GoFishControllerTest, DISABLED_updateDone)
 
 	EXPECT_CALL(*mv, printFinalScore(_, _))
 		.Times(AtLeast(1));
-	
+
 	gc.update();
 
 	delete mm;
 	delete mv;
 }
 
-TEST(GoFishControllerTest, DISABLED_detectWin)
+TEST(GoFishControllerTest, detectWin)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
@@ -335,12 +335,12 @@ TEST(GoFishControllerTest, DISABLED_detectWin)
 }
 
 
-TEST(GoFishControllerTest, DISABLED_playKill)
+TEST(GoFishControllerTest, playKill)
 {
 	MockGoFishModel* mm = new MockGoFishModel();
 	MockGoFishView* mv = new MockGoFishView();
 	GoFishController gc(mm, mv);
-	
+
 	Player p1(1, 0);
 	Player p2(2, 0);
 	Player p3(3, 0);
@@ -356,9 +356,12 @@ TEST(GoFishControllerTest, DISABLED_playKill)
 		.WillRepeatedly(Return(done));
 
 	EXPECT_CALL(*mv, printGameOver());
+	EXPECT_CALL(*mv, printFinalScore(_,_))
+	.Times(3)
+	.WillRepeatedly(Return());
 
 	gc.play();
-	
+
 	delete mm;
 	delete mv;
 }

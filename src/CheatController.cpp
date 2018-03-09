@@ -29,7 +29,6 @@ void CheatController::initalDeal()
 	{
 		for(int cardsDealt=0; cardsDealt<cardsPerPlayer; cardsDealt++)
 		{
-			cout << "Hi : " << cardsDealt << endl;
 			_players[player]->receiveCard(_dealersDeck->drawCard());
 		}
 	}
@@ -40,13 +39,14 @@ void CheatController::initalDeal()
 void CheatController::runGame()
 {
 	int index = -1;
+	int currentPlayer = -1;
+	int handSize = -1;
 	while(1)
 	{
 		++index;
         index = index % _numPlayers;
         _view->clearTerminal();
-        int currentPlayer = turn(index);
-        cout << "SIZE: " << _players.size();
+        currentPlayer = turn(index);
         int handSize = _players[index]->getHandSize();
         if(handSize == 0)
         {
