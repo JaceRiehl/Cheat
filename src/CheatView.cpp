@@ -55,10 +55,7 @@ void CheatView::displayPlayersHand(vector<Card> playersHand)
 	cout << "Your hand is: " << endl;
     for(unsigned int hand=0; hand<playersHand.size();hand++)
     {
-        if(hand == playersHand.size()-1)
-            cout << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << endl;
-        else
-            cout << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << ", ";
+            cout << hand+1 << ") " << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << endl;
     }
 
 }
