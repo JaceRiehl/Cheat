@@ -16,24 +16,24 @@ public:
 	virtual void welcomeMessage();
 	/**
 	*Choose the Card number that will be checked against a player.
-	*@return The players choice of Card.
+	*@return maxCard The players choice of Card.
 	*@param The size of the hand.
 	*/
 	virtual int chooseCard(int);
 	/**
 	*Chooses the number of players that will play the game.
-	*@param The maximum number of players
+	*@param maxPlayers The maximum number of players
 	*@return The number of players that will play.
 	*/
 	virtual int chooseNumPlayers(int);
 	/**
 	*Display the hand inputted.
-	*@param Vector of Card to be displayed
+	*@param hand Vector of Card to be displayed
 	*/
 	virtual void displayPlayersHand(vector<Card>);
 	/**
 	*Displays which Players' turn it is.
-	*@param The Player who's turn it is.
+	*@param p1 The Player who's turn it is.
 	*/
 	virtual void displayTurn(Player);
 	/**
@@ -42,7 +42,7 @@ public:
 	virtual void endTurn();
 	/**
 	*Displays the ending message to the game. To be displayed when the game has ended.
-	*@param The player number of the winner.
+	*@param winner The player number of the winner.
 	*/
 	virtual void endingMessage(int);
 	/**
@@ -50,15 +50,20 @@ public:
 	*/
 	virtual void clearTerminal();
 	/**
-	*
+	*Checks if anyone wants to call cheat
+	*@return The index of the Player calling cheat
+	*@param numPlayers The number of players in the game
+	*@param playerNum The index of the current player whos turn it is
 	*/
 	virtual int callCheat(int, int);
 	/**
-	*
+	*Displays the current card to be discarded 
+	*@param c The card face
 	*/
 	virtual void displayCard(string c);
 	/**
-	*
+	*Asks the player if he wants to discard another card 
+	*@return true if they do want to, false otherwise
 	*/
 	virtual bool continueDiscarding();
 

@@ -10,11 +10,17 @@ void CheatView::welcomeMessage()
 int CheatView::chooseCard(int maxCard)
 {
 	int card;
-    char cardNum;
+    string cardNum;
     cout << "Which card number do you want to discard? (1-" << maxCard << ") ";
     while(cin >> cardNum)
     {
-        card = cardNum - '0';
+    	try{
+    		card = stoi(cardNum);
+    	}catch(...){
+    		cout << "Enter a valid input (1-" << maxCard << ") ";
+    		continue; 
+    	}
+        
         if(card >= 1 && card <= maxCard)
         {
             break;
@@ -49,10 +55,7 @@ void CheatView::displayPlayersHand(vector<Card> playersHand)
 	cout << "Your hand is: " << endl;
     for(unsigned int hand=0; hand<playersHand.size();hand++)
     {
-        if(hand == playersHand.size()-1)
-            cout << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << endl;
-        else
-            cout << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << ", ";
+            cout << hand+1 << ") " << playersHand[hand].getRankString() << " " << playersHand[hand].getSuitString() << endl;
     }
 
 }
