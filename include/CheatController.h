@@ -47,13 +47,13 @@ public:
 	virtual void runGame();
 	/**
 	*Calls a turn
-	*@param int that is the players number.
+	*@param playerIndex int that is the players number.
 	*@return The index of the Player in the players vector taking a turn.
 	*/
 	virtual int turn(int);
 	/**
 	*Helper to turn, it checks if cheat is valid or not
-	*@param int that is the players number.
+	*@param numCardsDiscarded int that is the players number.
 	*@return bool whether the player did cheat
 	*/
 	virtual bool didCheat(int);
@@ -61,12 +61,33 @@ public:
 
 
 private:
+	/**
+	*The view to be used
+	*/
 	CheatView* _view;
+	/**
+	*The vector of Player to be used
+	*/
 	vector<Player*> _players;
+	/**
+	*The Deck to be used 
+	*/
 	Deck* _dealersDeck;
+	/**
+	*The pile of cards discarded
+	*/
 	vector<Card> _pile;
+	/**
+	*The number of players
+	*/
 	int _numPlayers = 0;
+	/**
+	*The cards to be discarded
+	*/
 	vector<string> _discard = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+	/**
+	*The index of the discard array
+	*/
 	int _discardIndex = 0;
 };
 

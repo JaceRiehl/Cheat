@@ -10,11 +10,17 @@ void CheatView::welcomeMessage()
 int CheatView::chooseCard(int maxCard)
 {
 	int card;
-    char cardNum;
+    string cardNum;
     cout << "Which card number do you want to discard? (1-" << maxCard << ") ";
     while(cin >> cardNum)
     {
-        card = cardNum - '0';
+    	try{
+    		card = stoi(cardNum);
+    	}catch(...){
+    		cout << "Enter a valid input (1-" << maxCard << ") ";
+    		continue; 
+    	}
+        
         if(card >= 1 && card <= maxCard)
         {
             break;
